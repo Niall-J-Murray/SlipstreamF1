@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <link href="/css/general.css" rel="stylesheet" type="text/css"/>
+  <title>Logout</title>
+</head>
+<body>
+<header>
+  <ul class="nav-bar">
+    <div id="nav-logo">
+      <li><img alt="site logo" src="/images/customLogoWhite.png"
+               style="height: 50px; width: 300px; margin-left: 10px"></li>
+    </div>
+    <div id="nav-links">
+      <li><a href="/home">Home</a></li>
+    </div>
+  </ul>
+</header>
+<section id="background">
+  <section class="top-section">
+    <h1>Are you sure?</h1>
+    <form action="" method="post">
+      <input th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+      <button type="submit">Confirm Logout</button>
+    </form>
+  </section>
+</section>
+</body>
+</html>

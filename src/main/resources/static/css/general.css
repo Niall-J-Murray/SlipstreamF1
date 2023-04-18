@@ -1,0 +1,279 @@
+@font-face {
+    font-family: Font1;
+    font-display: auto;
+    src: url('https://www.formula1.com/etc/designs/fom-website/fonts/F1Bold/Formula1-Bold.ttf') format('truetype'),
+    url('https://www.formula1.com/etc/designs/fom-website/fonts/F1Regular/Formula1-Regular.ttf') format('truetype'),
+    url('https://www.formula1.com/etc/designs/fom-website/fonts/F1Wide/Formula1-Wide.ttf') format('truetype'),
+    url('https://www.formula1.com/etc/designs/fom-website/fonts/F1Wide/Formula1-Black.ttf') format('truetype');
+}
+
+body {
+    font-family: Font1, Arial, Helvetica, sans-serif;
+    color: white;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+    background: black;
+    margin: 1%;
+}
+
+#background {
+    width: 2400px;
+    height: 1200px;
+    background: black;
+    background-image: url("../images/background.jpg");
+    background-size: 2500px;
+    background-repeat: no-repeat;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+button {
+    background: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 12px;
+    display: block;
+    color: white;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: baseline;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+button:hover {
+    background: #2c974b;
+}
+
+button:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+section {
+    float: left;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+#home-links {
+    display: inline;
+    float: top;
+    padding-left: 1%;
+    padding-bottom: 1%;
+}
+
+#rules {
+    background: black;
+    border: 1px solid white;
+    float: left;
+    width: 100%;
+    padding: 1%;
+}
+
+#admin-logged {
+    float: left;
+    width: 25%;
+    margin-right: 30px;
+}
+
+#admin-leagues {
+    float: none;
+    display: inline-flex;
+    padding: 2%;
+    margin-bottom: 3%;
+}
+
+#admin-users {
+    float: left;
+    width: 40%;
+}
+
+#admin-drivers {
+    float: left;
+    width: 40%;
+}
+
+.top-section {
+    float: none;
+    padding: 2%;
+}
+
+.left-table {
+    padding: 1%;
+}
+
+.right-table {
+    padding: 1%;
+}
+
+#dash-welcome {
+    float: left;
+    width: 25%;
+}
+
+#dash-info {
+    float: none;
+    display: inline-flex;
+    padding: 1%;
+}
+
+#dash-table1a {
+    float: left;
+    padding-left: 1%;
+}
+
+#dash-table1b {
+    float: left;
+    padding-left: 1%;
+}
+
+#dash-table2a {
+    float: left;
+}
+
+#dash-table2b {
+    float: left;
+}
+
+a {
+    color: white;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}
+
+ol li {
+    width: 80%;
+    padding-bottom: 3px;
+    float: inherit;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: black;
+}
+
+
+ul img {
+    height: 50px;
+    width: 150px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+    text-align: center;
+    vertical-align: baseline;
+    margin-left: 10px;
+    padding: 15px 15px;
+    text-decoration: none;
+}
+
+li a:hover {
+    text-decoration-line: underline;
+}
+
+#add {
+    float: right;
+}
+
+#update {
+    float: right;
+}
+
+#update:focus {
+    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
+    outline: none;
+}
+
+#confirm-pick {
+    display: inline;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+#team-form button {
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+li button {
+    background-color: #2ea44f;
+    border: 1px solid rgba(27, 31, 35, .15);
+    border-radius: 6px;
+    display: block;
+    margin: 10px 20px;
+    color: white;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+    text-align: center;
+    vertical-align: baseline;
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.league-table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.league-table td,
+.league-table th,
+.league-table caption {
+    border: 1px solid white;
+    padding: 5px;
+}
+
+.league-table tr:nth-child(odd),
+.league-table caption {
+    background-color: black;
+    color: white;
+}
+
+.league-table tr:nth-child(even) {
+    background-color: white;
+    color: black;
+    text-shadow: none;
+}
+
+.league-table tr:hover {
+    background-color: gray;
+}
+
+.league-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: black;
+    color: white;
+}
+
+#registration-form th {
+    padding-right: 10px;
+    text-align: left;
+}
+
+#registration-form td {
+    padding-top: 12px;
+}
+
+.error-message {
+    color: red;
+    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
+}

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+  <link href="/css/general.css" rel="stylesheet" type="text/css"/>
+  <title>Register</title>
+</head>
+<body>
+<header>
+  <ul class="nav-bar">
+    <div id="nav-logo">
+      <li><img alt="site logo" src="/images/customLogoWhite.png"
+               style="height: 50px; width: 300px; margin-left: 10px"></li>
+    </div>
+    <div id="nav-links">
+      <li><a href="/home">Home</a></li>
+      <div th:if="${isLoggedIn != true}">
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+      </div>
+      <div th:if="${isAdmin == true}">
+        <li><a href="/admin">Admin</a></li>
+      </div>
+      <div th:if="${isLoggedIn == true}">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/confirm_logout">Logout</a></li>
+      </div>
+    </div>
+  </ul>
+</header>
+<section id="background">
+  <section class="top-section">
+    <h1>Register</h1>
+    <fieldset style="width: 25%; margin-bottom: 1%">
+      <table id="registration-form">
+        <form action="" method="POST" th:action="@{/register}" th:object="${user}">
+          <tr>
+            <th>
+              <label>Username:</label>
+            </th>
+            <td>
+              <label>
+                <input required th:field="*{username}" type="text"/>
+              </label>
+            </td>
+            <td>
+              <p class="error-message" th:text="${userExists}"></p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label>Email:</label>
+            </th>
+            <td>
+              <label>
+                <input required th:field="*{email}" type="email"/>
+              </label>
+            </td>
+            <td>
+              <p class="error-message" th:text="${emailExists}"></p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <label>Password:</label>
+            </th>
+            <td>
+              <label>
+                <input required th:field="*{password}" type="password"/>
+              </label>
+            </td>
+            <td>
+              <p class="error-message" th:text="${badPassword}"></p>
+            </td>
+          </tr>
+          <tr>
+            <th>
+              <button type="submit">Register</button>
+            </th>
+            <td></td>
+          </tr>
+        </form>
+      </table>
+    </fieldset>
+    <div>
+      Already registered?
+    </div>
+    <div style="margin: 1%">
+      <button onclick="window.location.href='/login';">
+        Login
+      </button>
+    </div>
+  </section>
+</section>
+</body>
+</html>

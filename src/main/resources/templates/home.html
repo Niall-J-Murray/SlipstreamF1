@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="/css/general.css" rel="stylesheet" type="text/css"/>
+  <title>Home</title>
+</head>
+<body>
+<header>
+  <ul class="nav-bar">
+    <div id="nav-logo">
+      <li><img alt="site logo" src="/images/customLogoWhite.png"
+               style="height: 50px; width: 300px; margin-left: 10px"></li>
+    </div>
+    <div id="nav-links">
+      <li><a href="/home">Home</a></li>
+      <div th:if="${isLoggedIn != true}">
+        <li><a href="/register">Register</a></li>
+        <li><a href="/login">Login</a></li>
+      </div>
+      <div th:if="${isAdmin == true}">
+        <li><a href="/admin">Admin</a></li>
+      </div>
+      <div th:if="${isLoggedIn == true}">
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/confirm_logout">Logout</a></li>
+      </div>
+    </div>
+  </ul>
+</header>
+<section id="background">
+  <section id="home-links">
+    <h2><u>[[Home]]</u></h2>
+    <span th:if="${isLoggedIn == true}">
+      <h2 th:text="|Welcome ${user.getUsername()}!|"></h2>
+    </span>
+    <span th:if="${param.logout != null}">
+      <h3>You have been logged out.</h3>
+    </span>
+    <span th:if="${isLoggedIn == true}">
+      <h3><a href="/dashboard">Go to Dashboard</a></h3>
+    </span>
+    <span th:if="${isLoggedIn != true}">
+      <h3><a href="/login">Login</a></h3>
+      -or-
+      <h3><a href="/register">Create New Account</a></h3>
+    </span>
+    <section id="rules">
+      <div>
+        <h3>What is Slipstream F1 Draft Picks?</h3>
+        <div>
+          <p>Slipstream is a fantasy sports game based on the real-world Formula 1 championship.</p>
+          <p>It uses a draft pick format, so that no two players/teams in the same league can have the same driver.</p>
+          <p>Most fantasy sports games are aimed at existing fans of the sport, so knowledge and frequent team
+            management
+            gives players an advantage.</p>
+          <p>
+            Slipstream introduces an element of luck to the game, so that those who know the sport better don't have too
+            much advantage if luck is not on their side.
+          </p>
+          <p>
+          <h4>How to play:</h4>
+          <ol>
+            <li>Register an account with your email address and choose a username, then log in.</li>
+            <li>Go to your Dashboard, where you can name and create your team. Your team is automatically added to the
+              current open league.
+            </li>
+            <li>When you join a league, you are randomly assigned a 1st and 2nd draft pick number.
+            </li>
+            <li>To make the game more
+              fair, the better your 1st pick number is, the worse your 2nd will be. E.G. If you get the best 1st pick,
+              you also get the worst 2nd pick.
+            </li>
+            <li>Each league has 10 teams, with 2 drivers per team. When a league is full, a new one is automatically
+              created. The draft picks for each league cannot begin until the league is full.
+            </li>
+            <li>Once a league is full, players in that league take turns adding drivers to their teams, in order of
+              their
+              pick numbers. When all 20 drivers have been picked, the game begins!
+            </li>
+            <li>The league is now active, and teams will score whatever points their drivers get in the real life F1
+              Driver's Championship.
+            </li>
+            <li>
+              Points will only be gained from future races, so any points that drivers already have will not be added to
+              your team.
+            </li>
+            <li>
+              No new teams or leagues can be created after the start of Qualification, until the following Monday,
+              during
+              a F1 race weekend.
+            </li>
+            <li>
+              At the end of the season, most points wins! If points are level, the team who had the worse first pick
+              number wins.
+            </li>
+          </ol>
+          <p>For race schedules and more information on the Formula 1 World Championship visit:
+            <a href="https://www.formula1.com/en/racing/2023.html">formula1.com</a></p>
+        </div>
+      </div>
+    </section>
+  </section>
+</section>
+</body>
+</html>
