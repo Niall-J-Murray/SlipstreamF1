@@ -1,102 +1,123 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" rel="stylesheet">
   <link href="/css/general.css" rel="stylesheet" type="text/css"/>
   <title>Admin</title>
 </head>
 <body>
 <header>
-  <ul id="nav-bar">
-    <div id="nav-logo">
-      <li><img alt="site logo" src="/images/customLogoWhite.png"
-               style="height: 50px; width: 300px; margin-left: 10px"></li>
-    </div>
-    <div id="nav-links">
-      <li><a href="/home">Home</a></li>
-      <div th:if="${isLoggedIn != true}">
-        <li><a href="/register">Register</a></li>
-        <li><a href="/login">Login</a></li>
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark bg-black">
+    <div class="container-fluid nav">
+      <button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+              class="navbar-toggler"
+              data-bs-target="#navbarNavAltMarkup" data-bs-toggle="collapse" type="button">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav mx-auto">
+          <a class="navbar-brand" href="/">
+            <img alt="site logo" src="/images/customLogoWhite.png"
+                 style="height: 60px; width: 300px;">
+          </a>
+          <a class="nav-item nav-link" href="/home">Home</a>
+          <div th:if="${isAdmin == true}">
+            <a class="nav-item nav-link active" href="/admin">Admin</a>
+          </div>
+          <div th:if="${isLoggedIn == true}">
+            <a class="nav-item nav-link" href="/dashboard">Dashboard</a>
+          </div>
+          <div th:if="${isLoggedIn != true}">
+            <a class="nav-item nav-link" href="/register">Register</a>
+          </div>
+          <div th:if="${isLoggedIn != true}">
+            <a class="nav-item nav-link" href="/login">Login</a>
+          </div>
+          <div th:if="${isLoggedIn == true}">
+            <a class="nav-item nav-link" href="/confirm_logout">Logout</a>
+          </div>
+        </div>
       </div>
-      <div th:if="${isLoggedIn == true}">
-        <li><a href="/dashboard">Dashboard</a></li>
-        <li><a href="/confirm_logout">Logout</a></li>
-      </div>
     </div>
-    <div id="nav-buttons">
-      <form action="" method="POST" th:action="@{/admin/addDrivers}">
-        <li id="add">
-          <button type="submit">Add Drivers</button>
-        </li>
-      </form>
-      <form action="" method="POST" th:action="@{admin/updateDrivers}">
-        <li id="update">
-          <button type="submit">Update Drivers</button>
-        </li>
-      </form>
-    </div>
-  </ul>
+  </nav>
 </header>
-<section id="background">
 
-  <section class="top-section" id="admin-top">
-    <div id="admin-logged">
-      <h2><u>Admin</u></h2>
-      <table class="league-table">
-        <caption><h3>Currently Logged-in:</h3></caption>
-        <th>List of Usernames:</th>
-        <tr>
-          <td th:text="${activeUsers}"></td>
-        </tr>
-      </table>
-    </div>
-    <div id="admin-leagues">
-      <h2>Created Leagues:</h2>
-      <ol>
-        <li th:each="league : ${leagues}" th:text="${league}"></li>
-      </ol>
-    </div>
-  </section>
-  <section class="left-table" id="admin-users">
-    <table class="league-table">
+<div class="container-fluid dash-background">
+  <div class="container">
+    <table class="table caption-top league-table">
       <caption><h3>All Users:</h3></caption>
-      <th>ID:</th>
-      <th>User:</th>
-      <th>League:</th>
-      <th>Team:</th>
-      <th>Points:</th>
-      <th>Drivers:</th>
-      <th>Last Logout:</th>
+      <th>ID</th>
+      <th>User</th>
+      <th>League</th>
+      <th>Team</th>
+      <th>Points</th>
+      <th>Drivers</th>
+      <th>Active</th>
+      <th>Last Logout</th>
       <tr th:each="user : ${users}">
         <td th:text="${user.userId}"></td>
         <td th:text="${user.authorities.iterator().next().getAuthority()==('ROLE_ADMIN')}
-    ? ${user.username + ' (ADMIN) '}  : ${user.username}"></td>
+              ? ${user.username + '(Ad)'}  : ${user.username}"></td>
         <td th:text="${user.team != null} ? ${user.team.league.leagueName}: 'No Team'"></td>
         <td th:text="${user.team != null} ? ${user.team.teamName}: 'No Team'"></td>
         <td th:text="${user.team != null} ? ${user.team.teamPoints}: 'N/A'"></td>
         <td th:text="${user.team != null} ? ${user.team.drivers}: 'No Team'"></td>
+        <td th:text="${activeUsers.contains(user.username)} ? 'Yes' : 'No'"></td>
         <td th:text="${user.lastLogout}"></td>
       </tr>
     </table>
-  </section>
-  <section class="right-table" id="admin-drivers">
-    <table class="league-table">
-      <caption><h3>Driver Standings:</h3></caption>
-      <th>Rank:</th>
-      <th>Points:</th>
-      <th>Name:</th>
-      <th>Nationality:</th>
-      <th>Car#:</th>
-      <th>Constructor:</th>
-      <tr th:each="driver : ${allDrivers}">
-        <td>[[${driver.standing}]]</td>
-        <td>[[${driver.points.intValue()}]]</td>
-        <td>[[${driver.surname}]]</td>
-        <td>[[${driver.nationality}]]</td>
-        <td>[[${driver.carNumber}]]</td>
-        <td>[[${driver.constructor}]]</td>
-      </tr>
-    </table>
-  </section>
-</section>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <table class="table caption-top league-table">
+          <caption><h3>Created Leagues</h3></caption>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Created</th>
+          <th>Teams</th>
+          <tr th:each="league : ${leagues}">
+            <td th:text="${league.leagueId}"></td>
+            <td th:text="${league.leagueName}"></td>
+            <td th:text="${league.creationTime}"></td>
+            <td th:text="${league.teams.size()}"></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-sm-6">
+        <table class="table caption-top league-table">
+          <caption>
+            <div>
+              <form action="" method="POST" th:action="@{/admin/addDrivers}">
+                <button class="btn btn-danger navbar-btn">Add Drivers</button>
+              </form>
+            </div>
+            <h3>Current Driver Standings</h3>
+            <div>
+              <form action="" method="POST" th:action="@{admin/updateDrivers}">
+                <button class="btn btn-danger navbar-btn">Update Drivers</button>
+              </form>
+            </div>
+          </caption>
+          <th>Rank:</th>
+          <th>Points:</th>
+          <th>Name:</th>
+          <tr th:each="driver : ${allDrivers}">
+            <td>[[${driver.standing}]]</td>
+            <td>[[${driver.points.intValue()}]]</td>
+            <td>[[${driver.surname}]]</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<script crossorigin="anonymous"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class LeagueService {
     League league = new League();
     league.setLeagueName("League # " + (leagueRepository.findAll().size() + 1));
     league.setTeams(new ArrayList<>());
-    league.setCreationTime(LocalDateTime.now());
+    league.setCreationTime(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm")));
     return leagueRepository.save(league);
   }
 
