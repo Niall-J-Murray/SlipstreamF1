@@ -15,6 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.random.RandomGenerator;
+import java.util.stream.Collectors;
 
 @Service
 public class TeamService {
@@ -137,7 +138,8 @@ public class TeamService {
 
   public String getNextToPick(League league) {
     String nextUserPick = null;
-    for (Team team : teamRepository.findAll()) {
+    List<Team> teamsInLeague = getAllTeamsByLeague(league);
+    for (Team team : teamsInLeague) {
       if (timeToPick(league, team.getTeamId())) {
         nextUserPick = team.getUser().getUsername();
       }
@@ -148,6 +150,12 @@ public class TeamService {
 
   public List<Team> getAllTeams() {
     return teamRepository.findAll();
+  }
+
+  public List<Team> getAllTeamsByLeague(League league) {
+    return teamRepository.findAll().stream()
+            .filter(team -> team.getLeague().equals(league))
+            .collect(Collectors.toList());
   }
 
   public List<Team> getAllTeamsByNextPick() {

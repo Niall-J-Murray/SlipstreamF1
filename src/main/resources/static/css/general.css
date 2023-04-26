@@ -11,242 +11,117 @@ body {
     font-family: Font1, Arial, Helvetica, sans-serif;
     color: white;
     text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
-    background: black;
-    margin: 1%;
-}
-
-#background {
-    width: 2400px;
-    height: 1200px;
-    background: black;
-    background-image: url("../images/background.jpg");
-    background-size: 2500px;
-    background-repeat: no-repeat;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-button {
-    background: #2ea44f;
-    border: 1px solid rgba(27, 31, 35, .15);
-    border-radius: 12px;
-    display: block;
-    color: white;
-    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
-    font-weight: bold;
-    text-align: center;
-    vertical-align: baseline;
-    padding: 10px 20px;
-    text-decoration: none;
-}
-
-button:hover {
-    background: #2c974b;
-}
-
-button:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
-}
-
-section {
-    float: left;
-}
-
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
-}
-
-#home-links {
-    display: inline;
-    float: top;
-    padding-left: 1%;
-    padding-bottom: 1%;
-}
-
-#rules {
-    background: black;
-    border: 1px solid white;
-    float: left;
-    width: 100%;
-    padding: 1%;
-}
-
-#admin-logged {
-    float: left;
-    width: 25%;
-    margin-right: 30px;
-}
-
-#admin-leagues {
-    float: none;
-    display: inline-flex;
-    padding: 2%;
-    margin-bottom: 3%;
-}
-
-#admin-users {
-    float: left;
-    width: 40%;
-}
-
-#admin-drivers {
-    float: left;
-    width: 40%;
-}
-
-.top-section {
-    float: none;
-    padding: 2%;
-}
-
-.left-table {
-    padding: 1%;
-}
-
-.right-table {
-    padding: 1%;
-}
-
-#dash-welcome {
-    float: left;
-    width: 25%;
-}
-
-#dash-info {
-    float: none;
-    display: inline-flex;
-    padding: 1%;
-}
-
-#dash-table1a {
-    float: left;
-    padding-left: 1%;
-}
-
-#dash-table1b {
-    float: left;
-    padding-left: 1%;
-}
-
-#dash-table2a {
-    float: left;
-}
-
-#dash-table2b {
-    float: left;
-}
-
-a {
-    color: white;
-    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
-    text-decoration: none;
-}
-
-a:hover {
-    text-decoration-line: underline;
-}
-
-ol li {
-    width: 80%;
-    padding-bottom: 3px;
-    float: inherit;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
     background-color: black;
 }
 
-
-ul img {
-    height: 50px;
-    width: 150px;
+.background {
+    background: url("../images/background.jpg") no-repeat center center;
+    height: 1200px;
+    width: 1800px;
 }
 
-li {
-    float: left;
+.dash-background {
+    background: url("../images/background.jpg") no-repeat center center;
+    background-size: cover;
 }
 
-li a {
-    display: block;
+.container {
+    padding: 1%;
+}
+
+.navbar {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 100%;
+    min-width: 2000px;
+}
+
+.nav-link {
+    padding: 25px;
+    margin: 0 15px;
+
+}
+
+.shadow-inner {
+    padding: 1%;
+    box-shadow: inset 0 0 25em 25em rgba(0, 0, 0, 0.5);
+}
+
+.navbar-dark {
+    width: 100%;
+    background-color: black;
+}
+
+.form-group {
+    padding: 1%;
+}
+
+a,
+.btn-success,
+.btn-link {
     color: white;
-    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
-    text-align: center;
-    vertical-align: baseline;
-    margin-left: 10px;
-    padding: 15px 15px;
-    text-decoration: none;
 }
 
-li a:hover {
-    text-decoration-line: underline;
+.btn-success:hover {
+    background: #2ea44f;
 }
 
-#add {
-    float: right;
+.text-success {
+    color: #2ea44f;
+
 }
 
-#update {
-    float: right;
-}
-
-#update:focus {
-    box-shadow: rgba(46, 164, 79, .4) 0 0 0 3px;
-    outline: none;
+a:hover,
+.btn-link:hover {
+    color: #2ea44f;
 }
 
 #confirm-pick {
-    display: inline;
-    margin-right: 20px;
-    margin-bottom: 10px;
+
+    background-color: orangered;
 }
 
-#team-form button {
-    margin-top: 10px;
-    margin-left: 25px;
-}
-
-li button {
+#confirm-pick:hover {
     background-color: #2ea44f;
-    border: 1px solid rgba(27, 31, 35, .15);
-    border-radius: 6px;
-    display: block;
-    margin: 10px 20px;
-    color: white;
-    text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
-    text-align: center;
-    vertical-align: baseline;
-    padding: 10px 20px;
-    text-decoration: none;
+}
+
+#pick-button {
+    padding: 0;
+    border: none;
+    background: none;
+}
+
+input[type='radio'] {
+    border: 1px solid black;
+    padding: 0;
+}
+
+.form-check-label {
+    padding: 0;
 }
 
 .league-table {
-    border-collapse: collapse;
+    border-collapse: separate;
+    margin-left: 5%;
     width: 100%;
+    text-align: center;
 }
 
 .league-table td,
 .league-table th,
 .league-table caption {
     border: 1px solid white;
-    padding: 5px;
 }
 
 .league-table tr:nth-child(odd),
 .league-table caption {
+    text-align: center;
     background-color: black;
     color: white;
 }
 
 .league-table tr:nth-child(even) {
+    border: 1px solid black;
     background-color: white;
     color: black;
     text-shadow: none;
@@ -257,23 +132,17 @@ li button {
 }
 
 .league-table th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
     background-color: black;
     color: white;
 }
 
-#registration-form th {
-    padding-right: 10px;
-    text-align: left;
-}
-
-#registration-form td {
-    padding-top: 12px;
+.form-table,
+.form-table caption {
+    color: white;
+    text-align: center;
 }
 
 .error-message {
-    color: red;
+    color: orangered;
     text-shadow: 0.07em 0 black, 0 0.07em black, -0.07em 0 black, 0 -0.07em black;
 }

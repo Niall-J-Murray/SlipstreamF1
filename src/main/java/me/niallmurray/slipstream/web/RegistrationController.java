@@ -35,7 +35,7 @@ public class RegistrationController {
     }
 
     if (user.getPassword().length() < 6) {
-      model.addAttribute("badPassword", "Password cannot be less than 6 characters");
+      model.addAttribute("badPassword", "Password must be 6+ characters");
       return "register";
     }
     userService.createUser(user);
