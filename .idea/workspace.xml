@@ -4,11 +4,36 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Bootstrap Integration" />
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Bootstrap Integration">
+      <change afterPath="$PROJECT_DIR$/.idea/sqlDataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/authority.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/driver.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/driver_teams.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/league.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/league_teams.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/team.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/user.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/slipstream2/user_summary.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac393eae-3686-4d7c-b563-5f837f1729e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac393eae-3686-4d7c-b563-5f837f1729e5.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/slipstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/slipstream.iml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -75,8 +100,9 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Niall/intellijUlt/SlipstreamF1/src/main/resources/templates",
+    "last_opened_file_path": "C:/Users/Niall/AppData/Roaming/JetBrains/IntelliJIdea2022.3/jdbc-drivers/MySQL ConnectorJ/8.0.25/mysql-connector-java-8.0.25.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -134,6 +160,7 @@
       <workItem from="1682081176415" duration="2845000" />
       <workItem from="1682086043104" duration="233000" />
       <workItem from="1682526784563" duration="1184000" />
+      <workItem from="1682784549723" duration="4223000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
