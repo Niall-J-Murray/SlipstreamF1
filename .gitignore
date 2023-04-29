@@ -12,3 +12,4 @@ buildNumber.properties
 
 me/niallmurray/slipstream/dbConfig
 me/niallmurray/slipstream/dbConfig/DataSourceConfig.java
+/src/main/java/me/niallmurray/slipstream/dbConfig/DataSourceConfig.java
