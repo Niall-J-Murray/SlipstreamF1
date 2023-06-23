@@ -47,6 +47,10 @@ public class DashboardController {
       currentLeague = leagueService.createLeague();
     }
 
+    if (!userService.isAdmin(user)) {
+      modelMap.addAttribute("isAdmin", false);
+    }
+
     modelMap.addAttribute("user", user);
     modelMap.addAttribute("driver", new Driver());
     modelMap.addAttribute("allTeams", allTeams);
