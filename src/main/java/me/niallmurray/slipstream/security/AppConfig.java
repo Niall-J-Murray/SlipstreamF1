@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
   @Bean
-  public me.niallmurray.slipstream.security.ActiveUserStore activeUserStore() {
+  public ActiveUserStore activeUserStore() {
     return new ActiveUserStore();
   }
 

@@ -4,42 +4,33 @@ import me.niallmurray.slipstream.domain.Driver;
 import me.niallmurray.slipstream.domain.League;
 import me.niallmurray.slipstream.domain.Team;
 import me.niallmurray.slipstream.domain.User;
-import me.niallmurray.slipstream.repositories.DriverRepository;
-import me.niallmurray.slipstream.repositories.LeagueRepository;
 import me.niallmurray.slipstream.repositories.TeamRepository;
-import me.niallmurray.slipstream.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.random.RandomGenerator;
-import java.util.stream.Collectors;
 
 @Service
 public class TeamService {
   @Autowired
-  UserService userService;
+  private TeamRepository teamRepository;
   @Autowired
-  TeamRepository teamRepository;
+  private UserService userService;
   @Autowired
-  DriverService driverService;
+  private LeagueService leagueService;
   @Autowired
-  DriverRepository driverRepository;
-  @Autowired
-  LeagueService leagueService;
-  @Autowired
-  LeagueRepository leagueRepository;
-  @Autowired
-  private UserRepository userRepository;
+  private DriverService driverService;
 
   public void createTeam(User user) {
     Team team = new Team();
     team.setUser(user);
-    team.setTeamId(user.getUserId());
 
-    if (teamNameExists(user.getTeam().getTeamName())) {
+    if (isUniqueTeamName(user.getTeam().getTeamName())) {
       team.setTeamName(user.getTeam().getTeamName());
       user.setTeam(team);
       user.setEmail(user.getEmail());
@@ -48,44 +39,44 @@ public class TeamService {
     team.setSecondPickNumber(21 - team.getFirstPickNumber()); //So players get 1&20, 2&19 etc. up to 10&11.
     team.setRanking(team.getFirstPickNumber());
     team.setStartingPoints(0.0);
-    team.setLeague(leagueService.findNewestLeague());
+    team.setIsTestTeam(false);
+    team.setLeague(leagueService.findAvailableLeague());
     addOneTeamToLeague(team);
   }
 
+  public void createTestTeam(User user) {
+    String leagueNumber = user.getTeam().getLeague().getLeagueName().substring(8);
+    int leagueSize = getAllTeamsByLeague(user.getTeam().getLeague()).size();
+    String teamName = "Team " + leagueNumber + "-" + (leagueSize + 1);
+    User testUser = userService.createTestUser(teamName);
+
+    Team team = new Team();
+    team.setUser(testUser);
+    team.setTeamName(teamName);
+    team.setFirstPickNumber(randomPickNumber());
+    team.setSecondPickNumber(21 - team.getFirstPickNumber());
+    team.setRanking(team.getFirstPickNumber());
+    team.setStartingPoints(0.0);
+    team.setIsTestTeam(true);
+    team.setLeague(leagueService.findAvailableLeague());
+    testUser.setTeam(team);
+
+    addOneTeamToLeague(team);
+  }
 
   public void addOneTeamToLeague(Team team) {
-    League league = leagueService.findNewestLeague();
+    League league = leagueService.findAvailableLeague();
     List<Team> teams = league.getTeams();
     teams.add(team);
     league.setTeams(teams);
-    leagueRepository.save(league);
-  }
-
-  public List<Team> updateLeagueTeamsRankings(League league) {
-    List<Team> teams = league.getTeams();
-    for (Team team : teams) {
-      Double totalDriverPoints = team.getDrivers().stream()
-              .mapToDouble(Driver::getPoints).sum();
-      team.setTeamPoints(totalDriverPoints - team.getStartingPoints());
-    }
-    // Sort by pick order until all picks made
-    if (getCurrentPickNumber(league) < 21) {
-      teams.sort(Comparator.comparing(Team::getFirstPickNumber));
-      return teams;
-    }
-    teams.sort(Comparator.comparing(Team::getFirstPickNumber).reversed());
-    teams.sort(Comparator.comparing(Team::getTeamPoints).reversed());
-    for (Team team : teams) {
-      team.setRanking(teams.indexOf(team) + 1);
-    }
-    return teamRepository.saveAll(teams);
+    leagueService.save(league);
   }
 
   private int randomPickNumber() {
     RandomGenerator random = RandomGenerator.getDefault();
     int pickNumber = random.nextInt(1, 11);
 
-    for (Team team : leagueService.findNewestLeague().getTeams()) {
+    for (Team team : leagueService.findAvailableLeague().getTeams()) {
       if (team.getFirstPickNumber() == pickNumber) {
         pickNumber = randomPickNumber();
       }
@@ -93,7 +84,7 @@ public class TeamService {
     return pickNumber;
   }
 
-  public boolean teamNameExists(String teamName) {
+  public boolean isUniqueTeamName(String teamName) {
     List<Team> allTeams = teamRepository.findAll();
     for (Team team : allTeams) {
       if (Objects.equals(team.getTeamName(), teamName))
@@ -104,8 +95,8 @@ public class TeamService {
 
   public void addDriverToTeam(Long userId, Long driverId) {
     User user = userService.findById(userId);
-    Driver driver = driverRepository.findById(driverId).get();
-    Team team = teamRepository.findById(user.getTeam().getTeamId()).get();
+    Driver driver = driverService.findById(driverId);
+    Team team = findById(user.getTeam().getTeamId());
     List<Driver> teamDrivers = user.getTeam().getDrivers();
 
     if (teamDrivers.size() < 2) {
@@ -120,20 +111,36 @@ public class TeamService {
     team.setUser(user);
     user.setTeam(user.getTeam());
 
-    userRepository.save(user);
+    userService.save(user);
     teamRepository.save(team);
-    driverRepository.save(driver);
+    driverService.save(driver);
   }
 
-  public int getCurrentPickNumber(League league) {
-    List<Driver> undraftedDrivers = driverService.getUndraftedDrivers(league);
-    return 21 - undraftedDrivers.size();
+  public void addDriverToTestTeam(Long userId, Long driverId) {
+    User user = userService.findById(userId);
+    User testUser = userService.findByUserName(getNextToPick(user.getTeam().getLeague()));
+    addDriverToTeam(testUser.getUserId(), driverId);
+  }
+
+  public Boolean isTestPick(League league) {
+    return getNextToPick(league) != null && (getNextToPick(league).startsWith("Test User"));
+  }
+
+  public Boolean hasTestTeams(League league) {
+    List<Team> teamsInLeague = getAllTeamsByLeague(league);
+    for (Team team : teamsInLeague) {
+      if (Boolean.TRUE.equals(team.getIsTestTeam()))
+        return true;
+    }
+    return false;
   }
 
   public boolean timeToPick(League league, Long teamId) {
-    int firstPickNumber = teamRepository.findById(teamId).get().getFirstPickNumber();
-    int secondPickNumber = teamRepository.findById(teamId).get().getSecondPickNumber();
-    return firstPickNumber == getCurrentPickNumber(league) || secondPickNumber == getCurrentPickNumber(league);
+    int firstPickNumber = findById(teamId).getFirstPickNumber();
+    int secondPickNumber = findById(teamId).getSecondPickNumber();
+
+    return firstPickNumber == leagueService.getCurrentPickNumber(league)
+            || secondPickNumber == leagueService.getCurrentPickNumber(league);
   }
 
   public String getNextToPick(League league) {
@@ -147,6 +154,25 @@ public class TeamService {
     return nextUserPick;
   }
 
+  public List<Team> updateLeagueTeamsRankings(League league) {
+    List<Team> teams = league.getTeams();
+    for (Team team : teams) {
+      Double totalDriverPoints = team.getDrivers().stream()
+              .mapToDouble(Driver::getPoints).sum();
+      team.setTeamPoints(totalDriverPoints - team.getStartingPoints());
+    }
+    // Sort by pick order until all picks made and league is active
+    if (Boolean.FALSE.equals(league.getIsActive())) {
+      teams.sort(Comparator.comparing(Team::getFirstPickNumber));
+      return teams;
+    }
+    teams.sort(Comparator.comparing(Team::getFirstPickNumber).reversed());
+    teams.sort(Comparator.comparing(Team::getTeamPoints).reversed());
+    for (Team team : teams) {
+      team.setRanking(teams.indexOf(team) + 1);
+    }
+    return teamRepository.saveAll(teams);
+  }
 
   public List<Team> getAllTeams() {
     return teamRepository.findAll();
@@ -155,12 +181,53 @@ public class TeamService {
   public List<Team> getAllTeamsByLeague(League league) {
     return teamRepository.findAll().stream()
             .filter(team -> team.getLeague().equals(league))
-            .collect(Collectors.toList());
+            .toList();
   }
 
   public List<Team> getAllTeamsByNextPick() {
     List<Team> allTeams = teamRepository.findAll();
     allTeams.sort(Comparator.comparing(Team::getFirstPickNumber));
     return allTeams;
+  }
+
+  public void deleteTeam(Team team) {
+    League league = team.getLeague();
+    List<Driver> drivers = team.getDrivers();
+    User user = team.getUser();
+    for (Driver driver : drivers) {
+      driver.getTeams().remove(team);
+      driverService.save(driver);
+    }
+    league.getTeams().remove(team);
+    user.setTeam(null);
+    teamRepository.delete(team);
+    userService.save(user);
+    leagueService.save(league);
+  }
+
+  public void deleteAllTestTeams(League league) {
+    List<Team> teamsInLeague = getAllTeamsByLeague(league);
+    for (Team team : teamsInLeague) {
+      if (Boolean.TRUE.equals(team.getIsTestTeam())) {
+        deleteTeam(team);
+        userService.delete(team.getUser());
+      }
+    }
+    league.setIsTestLeague(false);
+  }
+
+  public void deleteExpiredTestTeams() {
+    List<League> allLeagues = leagueService.findAll();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yy HH:mm");
+    for (League league : allLeagues) {
+      LocalDateTime creationTime = LocalDateTime.parse(league.getCreationTimestamp(), formatter);
+      if (LocalDateTime.now().minusHours(24).isAfter(creationTime)) {
+        deleteAllTestTeams(league);
+      }
+    }
+  }
+
+  public Team findById(Long teamId) {
+    return teamRepository.findById(teamId).orElse(null);
   }
 }

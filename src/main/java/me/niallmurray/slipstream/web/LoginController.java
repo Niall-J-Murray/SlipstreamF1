@@ -14,11 +14,12 @@ import java.util.List;
 
 @Controller
 public class LoginController {
-
   @Autowired
-  ActiveUserStore activeUserStore;
+  private ActiveUserStore activeUserStore;
   @Autowired
   private AdminService adminService;
+  @Autowired
+  private AdminController adminController;
   @Autowired
   private UserService userService;
 
@@ -39,13 +40,16 @@ public class LoginController {
     if (userService.isAdmin(user)) {
       modelMap.addAttribute("isAdmin", true);
     }
-
     return "home";
   }
 
   @GetMapping("/login")
   public String getLogin(@AuthenticationPrincipal User user, ModelMap model) {
     List<String> activeUsers = activeUserStore.getUsers();
+    if (activeUsers.size() < 2) {
+      adminController.addDrivers();
+    }
+
     if (user != null && activeUsers.contains(user.getUsername())) {
       return "redirect:/home";
     }

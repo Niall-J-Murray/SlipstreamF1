@@ -13,11 +13,11 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class DriverService {
-
   @Autowired
-  DriverRepository driverRepository;
+  private DriverRepository driverRepository;
 
   public List<Driver> mapDTOToDrivers(List<DriverStanding> allDriverStandings) {
     List<Driver> drivers = new ArrayList<>();
@@ -32,7 +32,6 @@ public class DriverService {
     }
     return drivers;
   }
-
 
   public void addDrivers(List<Driver> drivers) {
     for (Driver driver : drivers) {
@@ -67,4 +66,13 @@ public class DriverService {
     }
     return undraftedDrivers;
   }
+
+  public Driver findById(Long driverId) {
+    return driverRepository.findById(driverId).orElse(null);
+  }
+
+  public void save(Driver driver) {
+    driverRepository.save(driver);
+  }
+
 }
