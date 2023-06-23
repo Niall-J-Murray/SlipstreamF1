@@ -22,23 +22,17 @@ public class League {
   @Column(nullable = false, unique = true)
   private String leagueName;
   @Column()
-  private String creationTimestamp;
-  @Column()
-  private Boolean isTestLeague;
-  @Column()
-  private Boolean isActive;
-  @Column()
-  private String activeTimestamp;
+  private String creationTime;
   @ManyToMany(
           fetch = FetchType.LAZY,
-          cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+          cascade = {CascadeType.MERGE})
   private List<Team> teams = new ArrayList<>();
 
   @Override
   public String toString() {
     return "Id= " + leagueId +
             ", Name= " + leagueName +
-            ", Creation Time=" + creationTimestamp +
+            ", Creation Time=" + creationTime +
             ", No. of Teams= " + teams.size();
   }
 

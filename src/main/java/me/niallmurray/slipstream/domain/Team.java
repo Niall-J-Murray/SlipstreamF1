@@ -23,7 +23,7 @@ public class Team {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long teamId;
   @JoinColumn(name = "user_id")
-  @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+  @OneToOne(cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
   //1-1 for now, see comment in User.class
   private User user;
   @Column()
@@ -33,8 +33,6 @@ public class Team {
   @Column()
   private String teamName;
   @Column()
-  private Boolean isTestTeam;
-  @Column()
   private Double startingPoints;
   @Column()
   private Double teamPoints;
@@ -42,7 +40,7 @@ public class Team {
   private Integer ranking;
   @Column()
   @ManyToMany(fetch = FetchType.LAZY,
-          cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.DETACH},
+          cascade = {CascadeType.MERGE, CascadeType.PERSIST},
           mappedBy = "teams")
   private List<Driver> drivers = new ArrayList<>(6);
 

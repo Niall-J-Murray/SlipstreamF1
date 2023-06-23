@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -18,49 +17,26 @@ import java.util.Set;
 public class UserService {
 
   @Autowired
-  private ActiveUserStore activeUserStore;
+  ActiveUserStore activeUserStore;
   @Autowired
   private UserRepository userRepository;
 
   public void createUser(User user) {
-    user.setUsername(user.getUsername().trim());
     Authority authority = new Authority();
     authority.setUser(user);
     authority.setAuthority("ROLE_USER");
 
     user.getAuthorities().add(authority);
     user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
-    user.setIsTestUser(false);
     // For new users first login and to check for unsuccessful logouts.
-    user.setLastLogout(String.valueOf(LocalDateTime.of(123, 4, 5, 6, 7)));
+    user.setLastLogout(String.valueOf(LocalDateTime.of(666, 6, 6, 6, 6)));
 
     userRepository.save(user);
-  }
-
-  public User createTestUser(String teamName) {
-    User user = new User();
-    user.setPassword(new BCryptPasswordEncoder().encode(user.getUsername() + "password"));
-    user.setLastLogout(String.valueOf(LocalDateTime.of(123, 4, 5, 6, 7)));
-    user.setUsername("Test User " + teamName.substring(5));
-    user.setEmail(user.getUsername() + "@slipstream.com");
-    user.setIsTestUser(true);
-
-    Authority authority = new Authority();
-    authority.setUser(user);
-    authority.setAuthority("ROLE_USER");
-    user.getAuthorities().add(authority);
-
-    return userRepository.save(user);
   }
 
   public User findById(Long userId) {
     Optional<User> findById = userRepository.findById(userId);
     return findById.orElse(null);
-  }
-
-  public User findByUserName(String username) {
-    Optional<User> findByUsername = userRepository.findByUsernameIgnoreCase(username);
-    return findByUsername.orElse(null);
   }
 
   public boolean usernameExists(String username) {
@@ -94,21 +70,5 @@ public class UserService {
     User user = findById(userId);
     user.setLastLogout(LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yy HH:mm")));
     userRepository.save(user);
-  }
-
-  public void save(User user) {
-    userRepository.save(user);
-  }
-
-  public void updateUser(User user) {
-    userRepository.save(user);
-  }
-
-  public List<User> findAll() {
-    return userRepository.findAll();
-  }
-
-  public void delete(User user) {
-    userRepository.delete(user);
   }
 }

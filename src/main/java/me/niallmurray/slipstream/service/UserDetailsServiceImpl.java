@@ -1,5 +1,6 @@
 package me.niallmurray.slipstream.service;
 
+
 import me.niallmurray.slipstream.domain.User;
 import me.niallmurray.slipstream.repositories.UserRepository;
 import me.niallmurray.slipstream.security.UserDetailsImpl;
