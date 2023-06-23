@@ -392,12 +392,12 @@
       <div class="col-sm-5">
         <table class="table caption-top league-table">
           <caption><h3 th:text="|${teamLeague.leagueName} Standings|"></h3></caption>
-          <th>Rank:</th>
-          <th>Points:</th>
-          <th>Player:</th>
-          <th>Team:</th>
-          <th>1st Pick:</th>
-          <th>2nd Pick:</th>
+          <th>Rank</th>
+          <th>Points</th>
+          <th>Player</th>
+          <th>Team</th>
+          <th>Pick 1</th>
+          <th>Pick 2</th>
           <tr th:each="team : ${teamsByRank}">
             <td>[[${team.getRanking()}]]</td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->
@@ -415,18 +415,12 @@
         <div th:if="${availableDrivers.size()>0}">
           <table class="table caption-top league-table">
             <caption><h3>Drivers from Deleted Teams</h3></caption>
-            <!--            <th>Rank</th>-->
             <th>Points</th>
             <th>Driver</th>
-            <!--            <th>Nationality</th>-->
-            <!--            <th>Car#</th>-->
             <th>Constructor</th>
             <tr th:each="driverInfo : ${availableDrivers}">
-              <!--              <td th:text="${driverInfo.standing}"></td>-->
               <td th:text="${driverInfo.points.intValue()}"></td>
               <td th:text="${driverInfo.surname}"></td>
-              <!--              <td th:text="${driverInfo.nationality}"></td>-->
-              <!--              <td th:text="${driverInfo.carNumber}"></td>-->
               <td th:text="${driverInfo.constructor}"></td>
             </tr>
           </table>
@@ -439,7 +433,6 @@
           <th>Points:</th>
           <th>Driver:</th>
           <th>Nationality</th>
-          <th>Car#:</th>
           <th>Constructor:</th>
           <tr th:each="driverInfo : ${allDrivers}">
             <td th:text="${driverInfo.standing}"></td>
@@ -448,7 +441,6 @@
             <td th:if="${driverInfo.points % 1 != 0}" th:text="${driverInfo.points}"></td>
             <td th:text="${driverInfo.surname}"></td>
             <td th:text="${driverInfo.nationality}"></td>
-            <td th:text="${driverInfo.carNumber}"></td>
             <td th:text="${driverInfo.constructor}"></td>
           </tr>
         </table>
