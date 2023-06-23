@@ -8,9 +8,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-@SuppressWarnings("SameReturnValue")
 @Controller
 public class RegistrationController {
+
   @Autowired
   private UserService userService;
 
@@ -20,27 +20,25 @@ public class RegistrationController {
     return "register";
   }
 
+
   @PostMapping("/register")
-  public String postCreateUser(ModelMap modelMap, User user) {
-    user.setUsername(user.getUsername().trim());
+  public String postCreateUser(ModelMap model, User user) {
 
     if (userService.usernameExists(user.getUsername())) {
-      modelMap.addAttribute("userExists", "Username not available");
+      model.addAttribute("userExists", "Username taken");
       return "register";
     }
 
     if (userService.emailExists(user.getEmail())) {
-      modelMap.addAttribute("emailExists", "Email already registered");
+      model.addAttribute("emailExists", "Email already registered");
       return "register";
     }
 
     if (user.getPassword().length() < 6) {
-      modelMap.addAttribute("badPassword", "Password must be 6+ characters long");
+      model.addAttribute("badPassword", "Password must be 6+ characters");
       return "register";
     }
-
     userService.createUser(user);
     return "redirect:/login";
   }
-
 }
