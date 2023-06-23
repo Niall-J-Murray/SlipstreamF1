@@ -189,6 +189,7 @@
   </div>
 
   <div id="test-box" style="display:block;">
+    <div th:if="${isAdmin != true}">
     <div th:if="${user.team.teamName} != null">
       <div th:if="${!leagueActive and !leagueFull and !isTestLeague}">
         <div class="container d-flex justify-content-center" id="practice-league-form">
@@ -295,6 +296,7 @@
       </div>
     </div>
   </div>
+     </div>
 
 
   <div class="container" th:if="${!leagueActive}">
