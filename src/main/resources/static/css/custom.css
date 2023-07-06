@@ -117,12 +117,24 @@ input[type='radio'] {
     border-collapse: separate;
     width: 100%;
     text-align: center;
+    word-wrap: break-word;
+    table-layout: fixed;
+}
+
+#player-standings{
+    margin: 0 1%;
+    border-collapse: separate;
+    width: 100%;
+    text-align: center;
+    word-wrap: break-word;
+    table-layout: fixed;
 }
 
 .league-table td,
 .league-table th,
 .league-table caption {
     border: 1px solid white;
+
 }
 
 .league-table tr:nth-child(odd),

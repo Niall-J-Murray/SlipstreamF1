@@ -104,8 +104,9 @@
                     th:text="|It's your turn to pick ${user.username}!|"></h4>
               </div>
               <div th:if="${leagueActive}">
-                <h3>Your league is active!</h3>
-                <h3>Check back after each race to see your ranking.</h3>
+                <h3 style="color: #2ea44f; text-decoration-line: underline">Your league is active!</h3>
+                <h5 th:text="|Points will be scored from races after league activation date: ${teamLeague.activeTimestamp.substring(0,8)}|"></h5>
+                <h5>Check back after each race to see your ranking.</h5>
                 <hr>
                 <form action="" method="POST" onsubmit=" return confirm('Are you sure you want to delete your team?')"
                       th:action="@{/dashboard/{userId}/deleteTeam (userId=${user.userId})}"
@@ -145,7 +146,7 @@
                     <div class="form-group">
                       <label for="teamName">Team Name (cannot be blank):</label>
                       <input id="teamName" name="teamName" pattern="^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$"
-                             required th:field="*{team.teamName}" th:placeholder="|Team ${user.username}|" type="text"/>
+                             required th:field="*{team.teamName}" th:placeholder="|${user.username} F1|" type="text"/>
                       <div class="error-message" id="team-name-message" th:if="${param.error != null}">
                         Sorry, that team name is already taken
                       </div>
@@ -190,101 +191,65 @@
 
   <div id="test-box" style="display:block;">
     <div th:if="${isAdmin != true}">
-    <div th:if="${user.team.teamName} != null">
-      <div th:if="${!leagueActive and !leagueFull and !isTestLeague}">
-        <div class="container d-flex justify-content-center" id="practice-league-form">
-          <div class="shadow-inner">
-            <div class="row">
-              <div class="col-sm-8">
-                <h4>Want to try a practice draft?</h4>
-                Caution:<br>
-                <ul class="text-block">
-                  <li>This cannot be undone, you will have to delete your team from this league after the practice
-                    draft is finished if you would like to join another league.
-                  </li>
-                  <li>If you do not delete your team, the league will continue as normal, but all test teams will be
-                    removed.
-                  </li>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <br>
-                <br>
-                <h5>Click below to toggle practice mode.</h5>
-                <form action="" id="toggle-practice" method="POST" name="toggle-practice"
-                      th:action="@{/dashboard/{userId}/toggleTestDraft (userId=${user.userId})}"
-                      th:object="${user}">
-                  <div class="form-check form-switch">
-                    <input class="form-check-input" id="practiceDraftToggle"
-                           onClick="document.forms['toggle-practice'].submit();"
-                           role="switch" type="checkbox">
-                    <label class="form-check-label" for="practiceDraftToggle">Practice Draft Mode Off</label>
-                  </div>
-                </form>
+      <div th:if="${user.team.teamName} != null">
+        <div th:if="${!leagueActive and !leagueFull and !isTestLeague}">
+          <div class="container d-flex justify-content-center" id="practice-league-form">
+            <div class="shadow-inner">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h4>Want to try a practice draft?</h4>
+                  Caution:<br>
+                  <ul class="text-block">
+                    <li>This cannot be undone, you will have to delete your team from this league after the practice
+                      draft is finished if you would like to join another league.
+                    </li>
+                    <li>If you do not delete your team, the league will continue as normal, but all test teams will be
+                      removed.
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <br>
+                  <br>
+                  <h5>Click below to toggle practice mode.</h5>
+                  <form action="" id="toggle-practice" method="POST" name="toggle-practice"
+                        th:action="@{/dashboard/{userId}/toggleTestDraft (userId=${user.userId})}"
+                        th:object="${user}">
+                    <div class="form-check form-switch">
+                      <input class="form-check-input" id="practiceDraftToggle"
+                             onClick="document.forms['toggle-practice'].submit();"
+                             role="switch" type="checkbox">
+                      <label class="form-check-label" for="practiceDraftToggle">Practice Draft Mode Off</label>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div th:if="${!leagueActive and !leagueFull and isTestLeague}">
-        <div class="container d-flex justify-content-center" id="test-team-form">
-          <div class="shadow-inner">
-            <div class="row">
-              <div class="col-sm-8">
-                <h4>For Practice Draft:</h4>
-                <ul class="text-block">
-                  <li>To see how the game works, you can add dummy test teams to this league for a practice draft.</li>
-                  <li>Teams can be deleted after the practice draft, or will be automatically deleted after 24 hours.
-                  </li>
-                  <li>Any non-test teams can be left in this league, or deleted to join a new league.</li>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <br>
-                <h5>Click below to add a test team to this league:</h5>
-                <form action="" method="POST"
-                      th:action="@{/dashboard/{userId}/addTestTeam (userId=${user.userId})}"
-                      th:object="${user}">
-                  <div>
-                    <button class="btn btn-success" id="test-team-button" type="submit">
-                      Add Test Team
-                    </button>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div th:if="${leagueActive and isTestLeague}">
-        <div class="container d-flex justify-content-center" id="delete-teams-form">
-          <div class="shadow-inner">
-            <div class="row">
-              <div class="col-sm-8">
-                <h4>Practice Draft Completed!</h4>
-                <ul class="text-block">
-                  <li>You can now delete your team above to leave this league.</li>
-                  <li>If you delete your team, you can join a new league with other players, or start a new practice
-                    draft.
-                  </li>
-                  <li>If you do not delete your team, you can remove the test teams by clicking the button to the right.
-                  </li>
-                  <li>All non-test teams can remain in this league, and the league will continue as normal.</li>
-                  <li>Test teams will automatically be deleted 24 hours after the league was created.</li>
-                </ul>
-              </div>
-              <div class="col-sm-4">
-                <div th:if="${hasTestTeams}">
+        <div th:if="${!leagueActive and !leagueFull and isTestLeague}">
+          <div class="container d-flex justify-content-center" id="test-team-form">
+            <div class="shadow-inner">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h4>For Practice Draft:</h4>
+                  <ul class="text-block">
+                    <li>To see how the game works, you can add dummy test teams to this league for a practice draft.
+                    </li>
+                    <li>Teams can be deleted after the practice draft, or will be automatically deleted after 24 hours.
+                    </li>
+                    <li>Any non-test teams can be left in this league, or deleted to join a new league.</li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
                   <br>
-                  <br>
-                  <h5>Remove test teams from this league?</h5>
+                  <h5>Click below to add a test team to this league:</h5>
                   <form action="" method="POST"
-                        onsubmit=" return confirm('Are you sure you want to delete all test teams?')"
-                        th:action="@{/dashboard/{userId}/deleteTestTeams (userId=${user.userId})}"
+                        th:action="@{/dashboard/{userId}/addTestTeam (userId=${user.userId})}"
                         th:object="${user}">
                     <div>
-                      <button class="btn btn-success" id="delete-test-teams-button" type="submit">
-                        Delete Test Teams
+                      <button class="btn btn-success" id="test-team-button" type="submit">
+                        Add Test Team
                       </button>
                     </div>
                   </form>
@@ -293,23 +258,60 @@
             </div>
           </div>
         </div>
+        <div th:if="${leagueActive and isTestLeague}">
+          <div class="container d-flex justify-content-center" id="delete-teams-form">
+            <div class="shadow-inner">
+              <div class="row">
+                <div class="col-sm-8">
+                  <h4>Practice Draft Completed!</h4>
+                  <ul class="text-block">
+                    <li>You can now delete your team above to leave this league.</li>
+                    <li>If you delete your team, you can join a new league with other players, or start a new practice
+                      draft.
+                    </li>
+                    <li>If you do not delete your team, you can remove the test teams by clicking the button to the
+                      right.
+                    </li>
+                    <li>All non-test teams can remain in this league, and the league will continue as normal.</li>
+                    <li>Test teams will automatically be deleted 24 hours after the league was created.</li>
+                  </ul>
+                </div>
+                <div class="col-sm-4">
+                  <div th:if="${hasTestTeams}">
+                    <br>
+                    <br>
+                    <h5>Remove test teams from this league?</h5>
+                    <form action="" method="POST"
+                          onsubmit=" return confirm('Are you sure you want to delete all test teams?')"
+                          th:action="@{/dashboard/{userId}/deleteTestTeams (userId=${user.userId})}"
+                          th:object="${user}">
+                      <div>
+                        <button class="btn btn-success" id="delete-test-teams-button" type="submit">
+                          Delete Test Teams
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-     </div>
-
 
   <div class="container" th:if="${!leagueActive}">
     <div class="row">
-      <div class="col-sm-4">
+      <div class="col-sm-5">
         <table class="table caption-top league-table">
           <caption>
             <h3 th:text="${teamLeague.leagueName}"></h3>
           </caption>
-          <th>Player</th>
-          <th>Team</th>
-          <th>1st Pick</th>
-          <th>2nd Pick</th>
+          <th>User<br>Name</th>
+          <th>Team<br>Name</th>
+          <th style="width: 4em">1st<br>Pick</th>
+          <th style="width: 4em">2nd<br>Pick</th>
           <tr th:each="team : ${teamsByRank}">
             <td th:text="${team.user.username}"></td>
             <td>[[${team.getTeamName()}]]</td>
@@ -318,7 +320,7 @@
           </tr>
         </table>
       </div>
-      <div class="col-sm-8">
+      <div class="col-sm-7">
         <table class="table caption-top league-table">
           <caption><h3>Undrafted Drivers -
             <small>[[| (${availableDrivers.size()}/20 remaining)|]]</small></h3>
@@ -338,11 +340,10 @@
               <th id="confirm-test-pick" th:if="${leagueFull and isTestPick}">
                 <button class="btn btn-success" id="test-pick-button" type="submit">Make Test Pick</button>
               </th>
-              <th>Driver</th>
-              <th>Rank</th>
-              <th>Points</th>
+              <th style="width: 9em">Driver</th>
+              <th style="width: 5em">Rank</th>
+              <th style="width: 5em">Points</th>
               <th>Nationality</th>
-              <th>Car#</th>
               <th>Constructor</th>
               <tr th:each="driverInfo : ${availableDrivers}">
                 <td th:if="${leagueFull and !timeToPick and !isTestPick}">
@@ -377,7 +378,6 @@
                 <td th:text="${driverInfo.standing}"></td>
                 <td th:text="${driverInfo.points.intValue()}"></td>
                 <td th:text="${driverInfo.nationality}"></td>
-                <td th:text="${driverInfo.carNumber}"></td>
                 <td th:text="${driverInfo.constructor}"></td>
               </tr>
             </form>
@@ -389,15 +389,15 @@
 
   <div class="container" th:if="${leagueActive}">
     <div class="row">
-      <div class="col-sm-5">
-        <table class="table caption-top league-table">
+      <div class="col-sm-6">
+        <table class="table caption-top league-table" id="player-standings">
           <caption><h3 th:text="|${teamLeague.leagueName} Standings|"></h3></caption>
-          <th>Rank</th>
-          <th>Points</th>
-          <th>Player</th>
-          <th>Team</th>
-          <th>Pick 1</th>
-          <th>Pick 2</th>
+          <th style="width: 5em">Rank</th>
+          <th style="width: 5em">Points</th>
+          <th style="width: 9em">Player</th>
+          <th style="width: 9em">Team</th>
+          <th style="width: 5em">Pick 1</th>
+          <th style="width: 5em">Pick 2</th>
           <tr th:each="team : ${teamsByRank}">
             <td>[[${team.getRanking()}]]</td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->
@@ -415,9 +415,9 @@
         <div th:if="${availableDrivers.size()>0}">
           <table class="table caption-top league-table">
             <caption><h3>Drivers from Deleted Teams</h3></caption>
-            <th>Points</th>
-            <th>Driver</th>
-            <th>Constructor</th>
+            <th style="width: 5em">Points</th>
+            <th style="width: 9em">Driver</th>
+            <th style="width: 9em">Constructor</th>
             <tr th:each="driverInfo : ${availableDrivers}">
               <td th:text="${driverInfo.points.intValue()}"></td>
               <td th:text="${driverInfo.surname}"></td>
@@ -426,14 +426,14 @@
           </table>
         </div>
       </div>
-      <div class="col-sm-7">
+      <div class="col-sm-6">
         <table class="table caption-top league-table">
           <caption><h3>F1 Drivers Championship</h3></caption>
-          <th>Rank:</th>
-          <th>Points:</th>
-          <th>Driver:</th>
+          <th style="width: 5em">Rank</th>
+          <th style="width: 5em">Points</th>
+          <th>Driver</th>
           <th>Nationality</th>
-          <th>Constructor:</th>
+          <th>Constructor</th>
           <tr th:each="driverInfo : ${allDrivers}">
             <td th:text="${driverInfo.standing}"></td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->

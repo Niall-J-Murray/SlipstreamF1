@@ -25,4 +25,5 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
   void updateStandings
           (@Param(value = "shortName") String shortName,
            @Param(value = "standing") Integer standing);
+
 }
