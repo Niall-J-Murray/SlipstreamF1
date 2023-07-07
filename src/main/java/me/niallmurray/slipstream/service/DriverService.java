@@ -34,13 +34,15 @@ public class DriverService {
   }
 
   public void addDrivers(List<Driver> drivers) {
-    for (Driver driver : drivers) {
-      // Set current champ to car #1
-      if (driver.getCarNumber() == 33) {
-        driver.setCarNumber(1);
-      }
-      if (driverRepository.findByCarNumber(driver.getCarNumber()) == null) {
-        driverRepository.save(driver);
+    if (drivers != null) {
+      for (Driver driver : drivers) {
+        // Set current champ to car #1
+        if (driver.getCarNumber() == 33) {
+          driver.setCarNumber(1);
+        }
+        if (driverRepository.findByCarNumber(driver.getCarNumber()) == null) {
+          driverRepository.save(driver);
+        }
       }
     }
   }

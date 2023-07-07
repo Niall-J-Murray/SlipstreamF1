@@ -54,7 +54,7 @@ public class AdminController {
   @ResponseBody
   @GetMapping("admin/driverStandingsJSON")
   public ResponseEntity<DriverStandingResponse> getDriverStandingsResponse() {
-    return new RestTemplate().getForEntity(f1DataApi, DriverStandingResponse.class);
+      return new RestTemplate().getForEntity(f1DataApi, DriverStandingResponse.class);
   }
 
   public List<Driver> getDriversFromResponse() {
@@ -78,7 +78,8 @@ public class AdminController {
   // if admin role has not already added drivers.
   // Admin can manually add drivers using PostMapping above.
   public void addDrivers() {
-    driverService.addDrivers(getDriversFromResponse());
+    List<Driver> latestStandings = getDriversFromResponse();
+      driverService.addDrivers(latestStandings);
   }
 
   @PostMapping("/admin/updateDrivers")
