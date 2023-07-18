@@ -88,6 +88,20 @@
             <td th:text="${league.activeTimestamp}"></td>
           </tr>
         </table>
+        <div>
+          <h3>For Email Sending Tests:</h3>
+          <form action="" method="POST" th:action="@{/admin/sendEmail}" modelAttribute="emailType">
+            <label for="emailType">Choose an email type:</label>
+            <select name="emailType" id="emailType">
+              <option value="1">1: Send Custom Email</option>
+              <option value="2">2: Send Email Template</option>
+              <option value="3">3: Send Custom Html Email</option>
+              <option value="4">4: Send HTML Email Template</option>
+            </select>
+            <br><br>
+            <button type="submit" class="btn btn-danger navbar-btn">Send Email</button>
+          </form>
+        </div>
       </div>
       <div class="col-sm-6">
         <table class="table caption-top league-table">
