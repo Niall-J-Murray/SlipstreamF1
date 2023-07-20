@@ -47,6 +47,54 @@
 
 <div class="container-fluid dash-background">
   <div class="container" id="centre">
+    <div class="container" id="email">
+      <table class="table caption-top league-table">
+        <caption><h3>Admin Controls:</h3></caption>
+        <th>Email Type</th>
+        <th>Email Address</th>
+        <th>API</th>
+        <tr>
+          <form action="" method="POST" th:action="@{/sendEmail}" modelAttribute="emailType, emailAddress">
+            <td>
+              <div>
+                <label for="emailType">Choose an email type:</label>
+              </div>
+              <div>
+                <select name="emailType" id="emailType">
+                  <option value="1">1: Send Custom Email</option>
+                  <option value="2">2: Send Email Template</option>
+                  <option value="3">3: Send Custom Html Email</option>
+                  <option value="4">4: Send HTML Email Template</option>
+                </select>
+              </div>
+            </td>
+            <td>
+              <div>
+                <label for="emailAddress">Enter Recipient Address: </label>
+              </div>
+              <div>
+                <input type="email" name="emailAddress" id="emailAddress">
+              </div>
+              <div style="padding: 3px">
+                <button type="submit" class="btn btn-danger navbar-btn">Send Email</button>
+              </div>
+            </td>
+          </form>
+          <td>
+            <div style="padding: 3px">
+              <form action="" method="POST" th:action="@{/admin/addDrivers}">
+                <button class="btn btn-danger navbar-btn">Add Drivers</button>
+              </form>
+            </div>
+            <div style="padding: 3px">
+              <form action="" method="POST" th:action="@{admin/updateDrivers}">
+                <button class="btn btn-danger navbar-btn">Update Drivers</button>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
     <table class="table caption-top league-table">
       <caption><h3>All Users:</h3></caption>
       <th>ID</th>
@@ -88,36 +136,10 @@
             <td th:text="${league.activeTimestamp}"></td>
           </tr>
         </table>
-        <div>
-          <h3>For Email Sending Tests:</h3>
-          <form action="" method="POST" th:action="@{/admin/sendEmail}" modelAttribute="emailType">
-            <label for="emailType">Choose an email type:</label>
-            <select name="emailType" id="emailType">
-              <option value="1">1: Send Custom Email</option>
-              <option value="2">2: Send Email Template</option>
-              <option value="3">3: Send Custom Html Email</option>
-              <option value="4">4: Send HTML Email Template</option>
-            </select>
-            <br><br>
-            <button type="submit" class="btn btn-danger navbar-btn">Send Email</button>
-          </form>
-        </div>
       </div>
       <div class="col-sm-6">
         <table class="table caption-top league-table">
-          <caption>
-            <div>
-              <form action="" method="POST" th:action="@{/admin/addDrivers}">
-                <button class="btn btn-danger navbar-btn">Add Drivers</button>
-              </form>
-            </div>
-            <h3>Current Driver Standings</h3>
-            <div>
-              <form action="" method="POST" th:action="@{admin/updateDrivers}">
-                <button class="btn btn-danger navbar-btn">Update Drivers</button>
-              </form>
-            </div>
-          </caption>
+          <caption><h3>Current Driver Standings</h3></caption>
           <th>Rank:</th>
           <th>Points:</th>
           <th>Name:</th>

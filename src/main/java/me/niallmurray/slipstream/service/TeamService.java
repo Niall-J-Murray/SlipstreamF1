@@ -118,12 +118,12 @@ public class TeamService {
 
   public void addDriverToTestTeam(Long userId, Long driverId) {
     User user = userService.findById(userId);
-    User testUser = userService.findByUserName(getNextToPick(user.getTeam().getLeague()));
+    User testUser = userService.findByUserName(getNextToPickName(user.getTeam().getLeague()));
     addDriverToTeam(testUser.getUserId(), driverId);
   }
 
   public Boolean isTestPick(League league) {
-    return getNextToPick(league) != null && (getNextToPick(league).startsWith("Test User"));
+    return getNextToPickName(league) != null && (getNextToPickName(league).startsWith("Test User"));
   }
 
   public Boolean hasTestTeams(League league) {
@@ -143,7 +143,18 @@ public class TeamService {
             || secondPickNumber == leagueService.getCurrentPickNumber(league);
   }
 
-  public String getNextToPick(League league) {
+  public User getNextToPick(League league) {
+    User nextUserPick = null;
+    List<Team> teamsInLeague = getAllTeamsByLeague(league);
+    for (Team team : teamsInLeague) {
+      if (timeToPick(league, team.getTeamId())) {
+        nextUserPick = team.getUser();
+      }
+    }
+    return nextUserPick;
+  }
+
+  public String getNextToPickName(League league) {
     String nextUserPick = null;
     List<Team> teamsInLeague = getAllTeamsByLeague(league);
     for (Team team : teamsInLeague) {

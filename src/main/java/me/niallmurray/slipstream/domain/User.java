@@ -24,6 +24,8 @@ public class User {
   private Boolean isTestUser;
   @Column(nullable = false, unique = true)
   private String email;
+  @Column()
+  private Integer emailsReceived;
   @Column(nullable = false)
   private String password;
   @OneToMany(fetch = FetchType.LAZY,

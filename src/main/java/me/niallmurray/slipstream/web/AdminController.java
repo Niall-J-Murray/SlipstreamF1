@@ -1,14 +1,11 @@
 package me.niallmurray.slipstream.web;
 
-import jakarta.mail.MessagingException;
-import jakarta.validation.Valid;
 import me.niallmurray.slipstream.domain.Driver;
 import me.niallmurray.slipstream.domain.League;
 import me.niallmurray.slipstream.domain.User;
 import me.niallmurray.slipstream.dto.DriverStanding;
 import me.niallmurray.slipstream.dto.DriverStandingResponse;
 import me.niallmurray.slipstream.dto.StandingsList;
-import me.niallmurray.slipstream.email.EmailService;
 import me.niallmurray.slipstream.security.ActiveUserStore;
 import me.niallmurray.slipstream.service.AdminService;
 import me.niallmurray.slipstream.service.DriverService;
@@ -20,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
@@ -40,8 +36,6 @@ public class AdminController {
   private DriverService driverService;
   @Autowired
   private AdminService adminService;
-  @Autowired
-  private EmailService emailService;
   @Value("${ergast.urls.base}${ergast.urls.currentDriverStandings}.json")
   private String f1DataApi;
 
@@ -96,44 +90,6 @@ public class AdminController {
       teamService.updateLeagueTeamsRankings(league);
     }
     modelMap.addAttribute("allDrivers", driverService.sortDriversStanding());
-    return "redirect:/admin";
-  }
-
-  @PostMapping("/admin/sendEmail")
-  public String postSendEmail(@Valid @ModelAttribute("emailType")int emailType) {
-    if (emailType == 1) {
-      emailService.sendEmail(
-              "dr.murriarty@hotmail.com",
-              "Test Email Type 1",
-              "This is a test email for a basic custom email.");
-    }
-
-    if (emailType == 2) {
-      emailService.sendEmailFromTemplate("dr.murriarty@hotmail.com",
-              "Test Email Type 2");
-    }
-
-    if (emailType == 3) {
-      try {
-        emailService.sendHtmlEmail(
-                "dr.murriarty@hotmail.com",
-                "Test Email Type 3");
-      } catch (MessagingException e) {
-        throw new RuntimeException(e);
-      }
-    }
-
-    if (emailType == 4) {
-      try {
-        emailService.sendEmailFromHTMLTemplate("dr.murriarty@hotmail.com",
-                "Test Email Type 4");
-      } catch (MessagingException e) {
-        throw new RuntimeException(e);
-      }
-    }
-
-
-
     return "redirect:/admin";
   }
 }

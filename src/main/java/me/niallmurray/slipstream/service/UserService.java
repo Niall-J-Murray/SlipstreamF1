@@ -31,6 +31,7 @@ public class UserService {
     user.getAuthorities().add(authority);
     user.setPassword(new BCryptPasswordEncoder().encode(user.getPassword()));
     user.setIsTestUser(false);
+    user.setEmailsReceived(0);
     // For new users first login and to check for unsuccessful logouts.
     user.setLastLogout(String.valueOf(LocalDateTime.of(123, 4, 5, 6, 7)));
 
@@ -43,6 +44,7 @@ public class UserService {
     user.setLastLogout(String.valueOf(LocalDateTime.of(123, 4, 5, 6, 7)));
     user.setUsername("Test User " + teamName.substring(5));
     user.setEmail(user.getUsername() + "@slipstream.com");
+    user.setEmailsReceived(0);
     user.setIsTestUser(true);
 
     Authority authority = new Authority();
