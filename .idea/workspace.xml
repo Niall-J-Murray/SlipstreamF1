@@ -4,32 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Added email sending feature">
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/a/1add2915e8824ddcd91fc0c321ab14b8f60d2a24" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/9/496a238a6afa168dbaf6efd37bb459331589579c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/a/1add2915e8824ddcd91fc0c321ab14b8f60d2a24" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/9/496a238a6afa168dbaf6efd37bb459331589579c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/5/a5cc2925ca8258af241be7e5b0381edf30266302" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/EmailController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/email/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/EmailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/security/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/security/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/email/emailTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/email/emailTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/me/niallmurray/slipstream/TeamServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/me/niallmurray/slipstream/TeamServiceTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Added email sending feature" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -212,7 +187,7 @@
       <workItem from="1689698858717" duration="11633000" />
       <workItem from="1689783032723" duration="17333000" />
       <workItem from="1689843805177" duration="3227000" />
-      <workItem from="1689860460645" duration="4658000" />
+      <workItem from="1689860460645" duration="5062000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -301,7 +276,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689711606403</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Added email sending feature">
+      <option name="closed" value="true" />
+      <created>1689865702798</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1689865702798</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
