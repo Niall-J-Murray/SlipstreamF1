@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Added email sending feature" />
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Added email sending feature">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="dev" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -187,7 +189,7 @@
       <workItem from="1689698858717" duration="11633000" />
       <workItem from="1689783032723" duration="17333000" />
       <workItem from="1689843805177" duration="3227000" />
-      <workItem from="1689860460645" duration="5062000" />
+      <workItem from="1689860460645" duration="5412000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -284,7 +286,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689865702798</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Added email sending feature">
+      <option name="closed" value="true" />
+      <created>1689866140402</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1689866140402</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -306,7 +316,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="origin/dev" />
+                        <option value="dev" />
                       </list>
                     </value>
                   </entry>
