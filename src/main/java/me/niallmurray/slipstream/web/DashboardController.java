@@ -4,10 +4,7 @@ import me.niallmurray.slipstream.domain.Driver;
 import me.niallmurray.slipstream.domain.League;
 import me.niallmurray.slipstream.domain.Team;
 import me.niallmurray.slipstream.domain.User;
-import me.niallmurray.slipstream.service.DriverService;
-import me.niallmurray.slipstream.service.LeagueService;
-import me.niallmurray.slipstream.service.TeamService;
-import me.niallmurray.slipstream.service.UserService;
+import me.niallmurray.slipstream.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -29,6 +26,8 @@ public class DashboardController {
   private DriverService driverService;
   @Autowired
   private LeagueService leagueService;
+  @Autowired
+  private EmailService emailService;
 
   @GetMapping("/dashboard")
   public String redirectUserDashboard(@AuthenticationPrincipal User userAuth) {
@@ -91,18 +90,28 @@ public class DashboardController {
     if (!userService.isAdmin(user) && user.getTeam() != null) {
       if (user.getTeam().getLeague().getTeams().size() >= 10) {
         modelMap.addAttribute("leagueFull", true);
-        modelMap.addAttribute("nextUserPick", teamService.getNextToPick(user.getTeam().getLeague()));
+        modelMap.addAttribute("nextUserPick", teamService.getNextToPickName(user.getTeam().getLeague()));
         modelMap.addAttribute("isTestPick", teamService.isTestPick(user.getTeam().getLeague()));
         modelMap.addAttribute("isTestLeague", user.getTeam().getLeague().getIsTestLeague());
         modelMap.addAttribute("hasTestTeams", teamService.hasTestTeams(user.getTeam().getLeague()));
+
+        if (teamService.getNextToPick(user.getTeam().getLeague()) != null) {
+          if (teamService.getNextToPick(user.getTeam().getLeague()).getTeam().getFirstPickNumber() == 1) {
+            //Async send email to first to pick
+            emailService.asyncPickNotificationEmail(user.getTeam().getLeague());
+          }
+        }
       }
 
       if (teamService.timeToPick(user.getTeam().getLeague(), user.getTeam().getTeamId())) {
         modelMap.addAttribute("timeToPick", true);
       }
+
       //    Set active flag to true when draft is finished, but will not change if teams are removed from league
       if (Boolean.TRUE.equals(user.getTeam().getLeague().getIsActive())) {
         modelMap.addAttribute("leagueActive", true);
+        //Async send emails to each user in league
+        emailService.asyncActiveNotificationEmail(user.getTeam().getLeague());
       }
     }
     return "dashboard";
@@ -153,6 +162,8 @@ public class DashboardController {
     } else {
       teamService.addDriverToTeam(userId, driverId);
     }
+    //Async send email to next to pick
+    emailService.asyncPickNotificationEmail(userLeague);
     return "redirect:/dashboard/" + userId;
   }
 

@@ -54,7 +54,7 @@ public class AdminController {
   @ResponseBody
   @GetMapping("admin/driverStandingsJSON")
   public ResponseEntity<DriverStandingResponse> getDriverStandingsResponse() {
-      return new RestTemplate().getForEntity(f1DataApi, DriverStandingResponse.class);
+    return new RestTemplate().getForEntity(f1DataApi, DriverStandingResponse.class);
   }
 
   public List<Driver> getDriversFromResponse() {
@@ -67,7 +67,7 @@ public class AdminController {
   }
 
   @PostMapping("/admin/addDrivers")
-  public String getAddDrivers(ModelMap modelMap) {
+  public String postAddDrivers(ModelMap modelMap) {
     driverService.addDrivers(getDriversFromResponse());
 
     modelMap.addAttribute("allDrivers", driverService.sortDriversStanding());
@@ -79,11 +79,11 @@ public class AdminController {
   // Admin can manually add drivers using PostMapping above.
   public void addDrivers() {
     List<Driver> latestStandings = getDriversFromResponse();
-      driverService.addDrivers(latestStandings);
+    driverService.addDrivers(latestStandings);
   }
 
   @PostMapping("/admin/updateDrivers")
-  public String getUpdateDriverStandings(ModelMap modelMap) {
+  public String postUpdateDriverStandings(ModelMap modelMap) {
     driverService.updateDrivers(getDriversFromResponse());
 
     for (League league : leagueService.findAll()) {
