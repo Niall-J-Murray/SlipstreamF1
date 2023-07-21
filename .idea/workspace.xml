@@ -5,7 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Added email sending feature">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/EmailService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/EmailService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/EmailController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/EmailController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/email/emailText.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/email/emailText.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,6 +198,8 @@
       <workItem from="1689860460645" duration="5412000" />
       <workItem from="1689867080850" duration="368000" />
       <workItem from="1689867898362" duration="25000" />
+      <workItem from="1689867999515" duration="1338000" />
+      <workItem from="1689970662035" duration="2152000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -319,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689867347072</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Added email sending feature">
+      <option name="closed" value="true" />
+      <created>1689868069237</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1689868069237</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

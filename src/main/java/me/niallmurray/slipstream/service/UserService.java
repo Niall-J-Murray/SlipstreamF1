@@ -110,6 +110,10 @@ public class UserService {
     return userRepository.findAll();
   }
 
+  public User findByEmail(String email) {
+    return userRepository.findByEmail(email);
+  }
+
   public void delete(User user) {
     userRepository.delete(user);
   }

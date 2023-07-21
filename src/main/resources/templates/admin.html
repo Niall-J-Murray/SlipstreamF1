@@ -97,18 +97,20 @@
     </div>
     <table class="table caption-top league-table">
       <caption><h3>All Users:</h3></caption>
-      <th>ID</th>
+      <th style="width: 4em">ID</th>
       <th>User</th>
-      <th>League</th>
+      <th>Email</th>
+      <!--      <th>League</th>-->
       <th>Team</th>
-      <th>Points</th>
+      <th style="width: 5em">Points</th>
       <th>Drivers</th>
-      <th>Active</th>
+      <th style="width: 5em">Active</th>
       <th>Last Logout</th>
       <tr th:each="user : ${users}">
         <td th:text="${user.userId}"></td>
         <td th:text="${user.username}"></td>
-        <td th:text="${user.team != null} ? ${user.team.league.leagueName}: 'No Team'"></td>
+        <td th:text="${user.email}"></td>
+        <!--        <td th:text="${user.team != null} ? ${user.team.league.leagueName}: 'No Team'"></td>-->
         <td th:text="${user.team != null} ? ${user.team.teamName}: 'No Team'"></td>
         <td th:text="${user.team != null} ? ${user.team.teamPoints}: 'N/A'"></td>
         <td th:text="${user.team != null} ? ${user.team.drivers}: 'No Team'"></td>

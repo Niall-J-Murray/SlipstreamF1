@@ -48,8 +48,6 @@ public class EmailService {
               sendEmailFromHTMLTemplate(user.getUsername(),
                       user.getEmail(),
                       "Slipstream Draft Notification");
-              // Check emails received tracker...
-              // Save user after update
               user.setEmailsReceived(user.getEmailsReceived() + 1);
               userRepository.save(user);
               sendPickNotificationCopy(user.getUsername(), user.getEmail(), league.getLeagueName());
@@ -121,7 +119,7 @@ public class EmailService {
     mailSender.send(message);
   }
 
-  public void sendEmailFromTemplate(String to, String subject) {
+  public void sendEmailFromTemplate(String to, String subject, String username) {
     Resource resource = new ClassPathResource("static/email/emailText.txt");
     ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     InputStream inputStream = null;
@@ -143,6 +141,7 @@ public class EmailService {
       }
     }
 
+    emailBody = emailBody.replace("${name}", username);
     SimpleMailMessage message = new SimpleMailMessage();
     message.setTo(to);
     message.setSubject(subject);
@@ -151,7 +150,7 @@ public class EmailService {
     mailSender.send(message);
   }
 
-  public void sendHtmlEmail(String emailRecipient, String subject) throws MessagingException {
+  public void sendHtmlEmail(String username, String emailRecipient, String subject) throws MessagingException {
     MimeMessage message = mailSender.createMimeMessage();
 
     message.setFrom(new InternetAddress("slipstream.f1.draft@gmail.com"));
@@ -159,10 +158,22 @@ public class EmailService {
     message.setSubject(subject);
 
     String htmlContent = """
-            <h1>This is a test Spring Boot HTML custom email</h1>
-            <p>It can contain <strong>HTML</strong> content.</p>
-
-            <a href="https://slipstreamf1-production.up.railway.app/login">Go to Slipstream site</a>""";
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="UTF-8">
+              <title>Draft Pick Notice</title>
+            </head>
+            <body>
+            <div>
+              <h1>Hi ${name}, it's your turn to pick!</h1>
+              <h3>Click the link below to login and make your draft pick.</h3>
+              <a href="https://slipstreamf1-production.up.railway.app/login">Go to Slipstream site.</a>
+            </div>
+            </body>
+            </html>
+            """;
+    htmlContent = htmlContent.replace("${name}", username);
     message.setContent(htmlContent, "text/html; charset=utf-8");
 
     mailSender.send(message);
