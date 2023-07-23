@@ -1,0 +1,29 @@
+
+`	java:S1128"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112‡"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112Œ"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+a	java:S112Ã"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ
+E
+java:S3740H"/Provide the parametrized type for this generic.(Ÿåîş
+E
+java:S3740l"/Provide the parametrized type for this generic.(È¨á×
+J
+java:S1066,"/Merge this if statement with the enclosing one.(¶íƒÛùÿÿÿÿ
+E
+java:S1066-"/Merge this if statement with the enclosing one.(·Ğ¤Û
+E
+java:S1066."/Merge this if statement with the enclosing one.(™üşæ
+J
+java:S1066R"/Merge this if statement with the enclosing one.(¶íƒÛùÿÿÿÿ
+J
+java:S1066S"/Merge this if statement with the enclosing one.(ßÂûˆùÿÿÿÿ
+Y
+java:S1163Œ"=Refactor this code to not throw exceptions in finally blocks.(Ò‚Òéüÿÿÿÿ
+P
+java:S1143Œ"4Remove this throw statement from this finally block.(Ò‚Òéüÿÿÿÿ
+e
+java:S2259Š"IA "NullPointerException" could be thrown; "inputStream" is nullable here.(¶ò†Áşÿÿÿÿ
+a
+java:S3252"EUse static access with "jakarta.mail.Message$RecipientType" for "TO".(æµÇ·ûÿÿÿÿ
+a
+java:S3252º"EUse static access with "jakarta.mail.Message$RecipientType" for "TO".(æµÇ·ûÿÿÿÿ
