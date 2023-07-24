@@ -37,6 +37,7 @@ public class DashboardController {
   @GetMapping("/dashboard/{userId}")
   public String getDashboard(@PathVariable Long userId, ModelMap modelMap) {
     User user = userService.findById(userId);
+    //
     teamService.deleteExpiredTestTeams();
     List<Team> allTeams = teamService.getAllTeams();
     League currentLeague = leagueService.findAvailableLeague();

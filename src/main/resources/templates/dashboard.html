@@ -179,10 +179,21 @@
               <li>All players will start on 0 points and will only score points from F1 races after the league is
                 active.
               </li>
+              <li>If a driver is replaced or temporarily substituted, you will receive the points of their
+                replacement.
+              </li>
               <li>Any current points your driver has will not be added to your team points.</li>
               <li>Tie breaks will be won by whoever picked last with their first pick.</li>
             </ul>
             <h5>Good Luck!</h5>
+            <!--            For Testing-->
+            <!--            <div th:if="${!leagueActive and !leagueFull and !isTestLeague}">f,f,f</div>-->
+            <!--            <div th:if="${leagueActive and !leagueFull and !isTestLeague}">t,f,f</div>-->
+            <!--            <div th:if="${leagueActive and leagueFull and !isTestLeague}">t,t,f</div>-->
+            <!--            <div th:if="${leagueActive and leagueFull and isTestLeague}">t,t,t</div>-->
+            <!--            <div th:if="${leagueActive and !leagueFull and isTestLeague}">t,f,t</div>-->
+            <!--            <div th:if="${!leagueActive and !leagueFull and isTestLeague}">f,f,t</div>-->
+            <!--            <div th:if="${!leagueActive and leagueFull and isTestLeague}">f,t,t</div>-->
           </div>
         </div>
       </div>
@@ -227,6 +238,7 @@
             </div>
           </div>
         </div>
+
         <div th:if="${!leagueActive and !leagueFull and isTestLeague}">
           <div class="container d-flex justify-content-center" id="test-team-form">
             <div class="shadow-inner">
@@ -331,47 +343,45 @@
           <div id="pick-form">
             <form action="" method="POST" th:action="@{/dashboard/{userId}/draftPick (userId=${user.userId})}"
                   th:object="${driver}">
-              <th id="confirm-pick-dis" th:if="${leagueFull and !timeToPick and !isTestPick}">
-                <button class="btn btn-success" disabled id="pick-button-dis" type="submit">Make Your Pick</button>
+              <th style="width: 5em" id="confirm-pick-dis" th:if="${leagueFull and !timeToPick and !isTestPick}">
+                <button class="btn btn-success" disabled id="pick-button-dis" type="submit">Confirm Pick</button>
               </th>
-              <th id="confirm-pick" th:if="${leagueFull and timeToPick}">
-                <button class="btn btn-success" id="pick-button" type="submit">Make <u>Your</u> Pick</button>
+              <th style="width: 5em" id="confirm-pick" th:if="${leagueFull and timeToPick}">
+                <button class="btn btn-success" id="pick-button" type="submit"><u>Confirm</u> Pick</button>
               </th>
-              <th id="confirm-test-pick" th:if="${leagueFull and isTestPick}">
-                <button class="btn btn-success" id="test-pick-button" type="submit">Make Test Pick</button>
+              <th style="width: 5em" id="confirm-test-pick" th:if="${leagueFull and isTestPick}">
+                <button class="btn btn-success" id="test-pick-button" type="submit">Confirm Pick</button>
               </th>
               <th style="width: 9em">Driver</th>
               <th style="width: 5em">Rank</th>
               <th style="width: 5em">Points</th>
-              <th>Nationality</th>
-              <th>Constructor</th>
+              <th style="width: 9em">Nationality</th>
+              <th style="width: 9em">Constructor</th>
               <tr th:each="driverInfo : ${availableDrivers}">
                 <td th:if="${leagueFull and !timeToPick and !isTestPick}">
                   <div class="form-check">
+                    <label class="form-check-label" for="driver-pick-dis" th:field="${driverInfo.driverId}">Pick</label>
                     <input class="form-check-input" disabled id="driver-pick-dis" name="driver-pick-dis"
                            th:field="*{driverId}"
                            th:value="${driverInfo.driverId}"
                            type="radio">
-                    <label class="form-check-label" for="driver-pick-dis" th:field="${driverInfo.driverId}">Select
-                      Driver</label>
                   </div>
                 </td>
                 <td th:if="${leagueFull and timeToPick}">
                   <div class="form-check">
+                    <label class="form-check-label" for="driver-pick" th:field="${driverInfo.driverId}">Pick</label>
                     <input class="form-check-input" id="driver-pick" name="driver-pick" th:field="*{driverId}"
                            th:value="${driverInfo.driverId}"
                            type="radio">
-                    <label class="form-check-label" for="driver-pick" th:field="${driverInfo.driverId}">Select
-                      Driver</label>
                   </div>
                 </td>
                 <td th:if="${leagueFull and isTestPick}">
                   <div class="form-check">
+                    <label class="form-check-label" for="driver-test-pick"
+                           th:field="${driverInfo.driverId}">Pick</label>
                     <input class="form-check-input" id="driver-test-pick" name="driver-pick" th:field="*{driverId}"
                            th:value="${driverInfo.driverId}"
                            type="radio">
-                    <label class="form-check-label" for="driver-test-pick" th:field="${driverInfo.driverId}">Select
-                      Driver</label>
                   </div>
                 </td>
                 <td th:text="${driverInfo.surname}"></td>
@@ -383,6 +393,9 @@
             </form>
           </div>
         </table>
+        <h6 style="font-size: small; margin-left: 1em">
+          *Note: Ricciardo replaced de Vries on July 11th 2023
+        </h6>
       </div>
     </div>
   </div>
@@ -444,6 +457,9 @@
             <td th:text="${driverInfo.constructor}"></td>
           </tr>
         </table>
+        <h6 style="font-size: small; margin-left: 1em">
+          *Note: Ricciardo replaced de Vries on July 11th 2023
+        </h6>
       </div>
     </div>
   </div>

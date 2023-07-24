@@ -61,6 +61,8 @@ public class DriverService {
 
   public List<Driver> getUndraftedDrivers(League league) {
     List<Driver> undraftedDrivers = driverRepository.findAllByOrderByStandingAsc();
+    // Remove fired de Vries from pick options.
+    undraftedDrivers.remove(driverRepository.findByCarNumber(21));
     List<Team> teams = league.getTeams();
     for (Team team : teams) {
       List<Driver> drivers = team.getDrivers();
@@ -71,6 +73,10 @@ public class DriverService {
 
   public Driver findById(Long driverId) {
     return driverRepository.findById(driverId).orElse(null);
+  }
+
+  public Driver findByCarNumber(Integer carNumber) {
+    return driverRepository.findByCarNumber(carNumber);
   }
 
   public void save(Driver driver) {
