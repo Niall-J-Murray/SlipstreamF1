@@ -4,22 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Bug with new driver added">
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/8/1834a56785a2edfc8cb7bf16c019d2aa78514b87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/0/301d3286a74f69357b0918a3d0a00ff986834ae9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8daea6bd66f272675cde441889b335caa30cf848" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a188d63e044fe17b184b36e719c78b5b26d28d9a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/8/1834a56785a2edfc8cb7bf16c019d2aa78514b87" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/0/301d3286a74f69357b0918a3d0a00ff986834ae9" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/d/8daea6bd66f272675cde441889b335caa30cf848" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/1/a188d63e044fe17b184b36e719c78b5b26d28d9a" beforeDir="false" />
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Fixed bug with new driver added">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/4/843b9800de654ddf6fba97fe590a2d60c101a762" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/4/843b9800de654ddf6fba97fe590a2d60c101a762" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/SlipstreamApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/SlipstreamApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/DriverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/admin.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/admin.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +201,7 @@
       <workItem from="1690122767472" duration="2248000" />
       <workItem from="1690140147136" duration="132000" />
       <workItem from="1690213484075" duration="663000" />
-      <workItem from="1690214159739" duration="15163000" />
+      <workItem from="1690214159739" duration="15709000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -380,7 +370,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690140246365</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Fixed bug with new driver added">
+      <option name="closed" value="true" />
+      <created>1690231003211</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1690231003212</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -425,7 +423,8 @@
     <MESSAGE value="Added email sending feature" />
     <MESSAGE value="Tweaked email sending feature" />
     <MESSAGE value="Bug with new driver added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bug with new driver added" />
+    <MESSAGE value="Fixed bug with new driver added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with new driver added" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
