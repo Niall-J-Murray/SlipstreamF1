@@ -343,13 +343,13 @@
           <div id="pick-form">
             <form action="" method="POST" th:action="@{/dashboard/{userId}/draftPick (userId=${user.userId})}"
                   th:object="${driver}">
-              <th style="width: 5em" id="confirm-pick-dis" th:if="${leagueFull and !timeToPick and !isTestPick}">
+              <th style="width: 6em" id="confirm-pick-dis" th:if="${leagueFull and !timeToPick and !isTestPick}">
                 <button class="btn btn-success" disabled id="pick-button-dis" type="submit">Confirm Pick</button>
               </th>
-              <th style="width: 5em" id="confirm-pick" th:if="${leagueFull and timeToPick}">
+              <th style="width: 6em" id="confirm-pick" th:if="${leagueFull and timeToPick}">
                 <button class="btn btn-success" id="pick-button" type="submit"><u>Confirm</u> Pick</button>
               </th>
-              <th style="width: 5em" id="confirm-test-pick" th:if="${leagueFull and isTestPick}">
+              <th style="width: 6em" id="confirm-test-pick" th:if="${leagueFull and isTestPick}">
                 <button class="btn btn-success" id="test-pick-button" type="submit">Confirm Pick</button>
               </th>
               <th style="width: 9em">Driver</th>
