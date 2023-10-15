@@ -4,21 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="Fixed bug with new driver added">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/ac393eae-3686-4d7c-b563-5f837f1729e5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/ac393eae-3686-4d7c-b563-5f837f1729e5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/b/1b79c57e2d676a57805a75d5e23cc4df28408192" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/5/3515fa1d52d6e76cfab18470104adbc80a1b2c0e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/9/1/91a0a421e595b03ee83a7e1a07c7ea2be72fe246" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/f/bff5742b3b556caef1c8f12e2d6012fde151d399" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/b/1b79c57e2d676a57805a75d5e23cc4df28408192" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/5/3515fa1d52d6e76cfab18470104adbc80a1b2c0e" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/9/1/91a0a421e595b03ee83a7e1a07c7ea2be72fe246" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/f/bff5742b3b556caef1c8f12e2d6012fde151d399" beforeDir="false" />
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="fixed table layout">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slipstream.iml" beforeDir="false" afterPath="$PROJECT_DIR$/slipstream.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/static/css/custom.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/css/custom.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -210,7 +197,7 @@
       <workItem from="1690213484075" duration="663000" />
       <workItem from="1690214159739" duration="16884000" />
       <workItem from="1690297215631" duration="2366000" />
-      <workItem from="1697392430460" duration="212000" />
+      <workItem from="1697392430460" duration="529000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -435,7 +422,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690298822587</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="fixed table layout">
+      <option name="closed" value="true" />
+      <created>1697392686195</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1697392686195</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -481,7 +476,8 @@
     <MESSAGE value="Tweaked email sending feature" />
     <MESSAGE value="Bug with new driver added" />
     <MESSAGE value="Fixed bug with new driver added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed bug with new driver added" />
+    <MESSAGE value="fixed table layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed table layout" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

@@ -186,14 +186,6 @@
               <li>Tie breaks will be won by whoever picked last with their first pick.</li>
             </ul>
             <h5>Good Luck!</h5>
-            <!--            For Testing-->
-            <!--            <div th:if="${!leagueActive and !leagueFull and !isTestLeague}">f,f,f</div>-->
-            <!--            <div th:if="${leagueActive and !leagueFull and !isTestLeague}">t,f,f</div>-->
-            <!--            <div th:if="${leagueActive and leagueFull and !isTestLeague}">t,t,f</div>-->
-            <!--            <div th:if="${leagueActive and leagueFull and isTestLeague}">t,t,t</div>-->
-            <!--            <div th:if="${leagueActive and !leagueFull and isTestLeague}">t,f,t</div>-->
-            <!--            <div th:if="${!leagueActive and !leagueFull and isTestLeague}">f,f,t</div>-->
-            <!--            <div th:if="${!leagueActive and leagueFull and isTestLeague}">f,t,t</div>-->
           </div>
         </div>
       </div>
@@ -410,7 +402,6 @@
           <th style="width: 9em">Player</th>
           <th style="width: 9em">Team</th>
           <th style="width: 5.5em">Drivers</th>
-          <!--          <th style="width: 5em">Pick 2</th>-->
           <tr th:each="team : ${teamsByRank}">
             <td>[[${team.getRanking()}]]</td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->
@@ -418,11 +409,11 @@
             <td th:if="${team.getTeamPoints() % 1 != 0}">[[${team.getTeamPoints()}]]</td>
             <td>[[${team.getUser().getUsername()}]]</td>
             <td>[[${team.getTeamName()}]]</td>
-            <!--            <td th:each="driver : ${team.getDrivers}" th:text="${driver.getShortName()}">-->
-            <!--              [[${driver.getShortName()}+ '(${driver.getPoints}))]]-->
-            <!--            </td>-->
+
             <td>
-              [[${team.getDrivers()[0].getShortName()}]] [[${team.getDrivers()[1].getShortName()}]]
+              [[${team.getDrivers()[0].getShortName()}]]
+              <br/>
+              [[${team.getDrivers()[1].getShortName()}]]
             </td>
           </tr>
 
