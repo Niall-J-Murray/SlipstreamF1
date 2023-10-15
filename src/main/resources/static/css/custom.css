@@ -121,7 +121,7 @@ input[type='radio'] {
     table-layout: fixed;
 }
 
-#player-standings{
+#player-standings {
     margin: 0 1%;
     border-collapse: separate;
     width: 100%;
@@ -134,7 +134,6 @@ input[type='radio'] {
 .league-table th,
 .league-table caption {
     border: 1px solid white;
-
 }
 
 .league-table tr:nth-child(odd),

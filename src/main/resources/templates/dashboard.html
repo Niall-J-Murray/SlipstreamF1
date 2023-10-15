@@ -405,12 +405,12 @@
       <div class="col-sm-6">
         <table class="table caption-top league-table" id="player-standings">
           <caption><h3 th:text="|${teamLeague.leagueName} Standings|"></h3></caption>
-          <th style="width: 5em">Rank</th>
+          <th style="width: 5em">#</th>
           <th style="width: 5em">Points</th>
           <th style="width: 9em">Player</th>
           <th style="width: 9em">Team</th>
-          <th style="width: 5em">Pick 1</th>
-          <th style="width: 5em">Pick 2</th>
+          <th style="width: 5.5em">Drivers</th>
+          <!--          <th style="width: 5em">Pick 2</th>-->
           <tr th:each="team : ${teamsByRank}">
             <td>[[${team.getRanking()}]]</td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->
@@ -418,10 +418,14 @@
             <td th:if="${team.getTeamPoints() % 1 != 0}">[[${team.getTeamPoints()}]]</td>
             <td>[[${team.getUser().getUsername()}]]</td>
             <td>[[${team.getTeamName()}]]</td>
-            <td th:each="driver : ${team.getDrivers}" th:text="${driver.getShortName()}">
-              [[${driver.getShortName()}+ '(${driver.getPoints}))]]
+            <!--            <td th:each="driver : ${team.getDrivers}" th:text="${driver.getShortName()}">-->
+            <!--              [[${driver.getShortName()}+ '(${driver.getPoints}))]]-->
+            <!--            </td>-->
+            <td>
+              [[${team.getDrivers()[0].getShortName()}]] [[${team.getDrivers()[1].getShortName()}]]
             </td>
           </tr>
+
         </table>
         <div class="pt-4">
         </div>
@@ -442,11 +446,11 @@
       <div class="col-sm-6">
         <table class="table caption-top league-table">
           <caption><h3>F1 Drivers Championship</h3></caption>
-          <th style="width: 5em">Rank</th>
-          <th style="width: 5em">Points</th>
-          <th>Driver</th>
-          <th>Nationality</th>
-          <th>Constructor</th>
+          <th style="width: 3em">#</th>
+          <th style="width: 4em">Pts</th>
+          <th style="width: 9em">Driver</th>
+          <th style="width: 9em">Nationality</th>
+          <th style="width: 9em">Constructor</th>
           <tr th:each="driverInfo : ${allDrivers}">
             <td th:text="${driverInfo.standing}"></td>
             <!--          Only display decimal point in rare case where drivers get half a point.-->
