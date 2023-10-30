@@ -56,13 +56,32 @@ public class DriverService {
   }
 
   public List<Driver> sortDriversStanding() {
-    return driverRepository.findAllByOrderByStandingAsc();
+    List<Driver> driverStandings = driverRepository.findAllByOrderByStandingAsc();
+    for (Driver driver : driverStandings) {
+      asteriskReplacedDrivers(driver, "de Vries");
+      asteriskReplacedDrivers(driver, "Ricciardo");
+      asteriskReplacedDrivers(driver, "Lawson");
+    }
+    return driverStandings;
   }
 
+  public void asteriskReplacedDrivers(Driver driver, String surname) {
+    if (driver.getSurname().equalsIgnoreCase(surname)) {
+      driver.setSurname(driver.getSurname() + "*");
+    }
+  }
+
+  public List<Driver> removeInactiveDrivers() {
+    // Filter out any drivers who are no longer active due to injury or being dropped by their team.
+    List<Driver> driversStandings = sortDriversStanding();
+    driversStandings.removeIf((driver -> driver.getShortName().equalsIgnoreCase("DEV")));
+    driversStandings.removeIf((driver -> driver.getShortName().equalsIgnoreCase("LAW")));
+    return driversStandings;
+  }
+
+
   public List<Driver> getUndraftedDrivers(League league) {
-    List<Driver> undraftedDrivers = driverRepository.findAllByOrderByStandingAsc();
-    // Remove fired de Vries from pick options.
-    undraftedDrivers.remove(driverRepository.findByCarNumber(21));
+    List<Driver> undraftedDrivers = removeInactiveDrivers();
     List<Team> teams = league.getTeams();
     for (Team team : teams) {
       List<Driver> drivers = team.getDrivers();
@@ -77,6 +96,10 @@ public class DriverService {
 
   public Driver findByCarNumber(Integer carNumber) {
     return driverRepository.findByCarNumber(carNumber);
+  }
+
+  public Driver findByShortName(String shortName) {
+    return driverRepository.findByShortNameIgnoreCase(shortName);
   }
 
   public void save(Driver driver) {

@@ -12,6 +12,8 @@ public interface DriverRepository extends JpaRepository<Driver, Long> {
 
   Driver findByCarNumber(int carNumber);
 
+  Driver findByShortNameIgnoreCase(String shortName);
+
   List<Driver> findAllByOrderByStandingAsc();
 
   @Modifying

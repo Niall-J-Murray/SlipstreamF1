@@ -52,11 +52,11 @@ public class DashboardController {
 
     modelMap.addAttribute("user", user);
     modelMap.addAttribute("driver", new Driver());
+    modelMap.addAttribute("allDrivers", driverService.sortDriversStanding());
     modelMap.addAttribute("allTeams", allTeams);
     modelMap.addAttribute("currentLeague", currentLeague);
     modelMap.addAttribute("teamsInLeague", currentLeague.getTeams());
     modelMap.addAttribute("teamsByPick", teamService.getAllTeamsByNextPick());
-    modelMap.addAttribute("allDrivers", driverService.sortDriversStanding());
     modelMap.addAttribute("isTestLeague", currentLeague.getIsTestLeague());
     modelMap.addAttribute("leagueFull", false);
     modelMap.addAttribute("timeToPick", false);
