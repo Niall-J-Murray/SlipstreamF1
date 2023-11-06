@@ -4,47 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="fixed table layout">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/0/2/0295b987eb5b4ec609e747093866c4195c664baa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/1/c/1c7758d4298e89f56289f077c3c696f1a9ec8675" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/1/211562f90f1febb1436bf17e572246417a0a9cba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/2/a/2a7bda907d9fcf9baed08d09b98c4694f9dc4f63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/8/38bbac3063c87992f63a357cd49b0a3d22458855" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/3/9/39cdec47a7c1e3dcdf74360a5ad55ae54cbb3860" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/4/3/43190df0d602b3044ddbae1ff773bd22a3175eb2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/6/3/6367d64532778eca504a6500cbb8bc4ad460b9b1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/7/a/7a6bb36360479cef6a9efaf5e4e8920e57fd815a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/8/d/8d7ea60807a94427a4dc421f5c3e7598a8e02aae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/1/a15ae98ee81ed5060ec11b9ffa4015eb0d06a374" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/a/2/a2857415ebaca4a6327aa3786ee670a063e18191" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/b/5/b52d6f34c763fc168beae36e93cd38e4d45a1544" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/d/8/d85e5a4bcc2fd3ad119e83587e05a75381cc5429" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/e/2/e2496f3d4c675032e697894ceaa5c61b67abfdf6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/issuestore/f/1/f16a1e8a8c0b23dc055d980a45c15bbf4dad1d54" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/0/2/0295b987eb5b4ec609e747093866c4195c664baa" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/1/c/1c7758d4298e89f56289f077c3c696f1a9ec8675" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/1/211562f90f1febb1436bf17e572246417a0a9cba" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/2/a/2a7bda907d9fcf9baed08d09b98c4694f9dc4f63" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/8/38bbac3063c87992f63a357cd49b0a3d22458855" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/3/9/39cdec47a7c1e3dcdf74360a5ad55ae54cbb3860" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/4/3/43190df0d602b3044ddbae1ff773bd22a3175eb2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/6/3/6367d64532778eca504a6500cbb8bc4ad460b9b1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/7/a/7a6bb36360479cef6a9efaf5e4e8920e57fd815a" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/8/d/8d7ea60807a94427a4dc421f5c3e7598a8e02aae" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/1/a15ae98ee81ed5060ec11b9ffa4015eb0d06a374" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/a/2/a2857415ebaca4a6327aa3786ee670a063e18191" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/b/5/b52d6f34c763fc168beae36e93cd38e4d45a1544" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/d/8/d85e5a4bcc2fd3ad119e83587e05a75381cc5429" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/e/2/e2496f3d4c675032e697894ceaa5c61b67abfdf6" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sonarlint/securityhotspotstore/f/1/f16a1e8a8c0b23dc055d980a45c15bbf4dad1d54" beforeDir="false" />
+    <list default="true" id="52f78498-d8b9-4726-b1a3-27aa52332ebb" name="Changes" comment="fixed bug when drivers are replaced">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/repositories/DriverRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/repositories/DriverRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/DriverService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/DriverService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/service/TeamService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/niallmurray/slipstream/web/DashboardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,36 +76,36 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Niall/intellijUlt/Slipstream Versions/SlipstreamF1/src/main/resources",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "spring.configuration.checksum": "e18c9511cdda7dd91945c1b8f8e53c6b",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Niall/intellijUlt/Slipstream Versions/SlipstreamF1/src/main/resources&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;e18c9511cdda7dd91945c1b8f8e53c6b&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Niall\intellijUlt\Slipstream Versions\SlipstreamF1\src\main\resources" />
@@ -237,7 +199,10 @@
       <workItem from="1690297215631" duration="2366000" />
       <workItem from="1697392430460" duration="645000" />
       <workItem from="1697393560273" duration="650000" />
-      <workItem from="1698676766492" duration="9452000" />
+      <workItem from="1698676766492" duration="9639000" />
+      <workItem from="1699200439913" duration="64000" />
+      <workItem from="1699200575708" duration="878000" />
+      <workItem from="1699298572591" duration="798000" />
     </task>
     <task id="LOCAL-00001" summary="Railway SQL">
       <created>1681841066572</created>
@@ -486,7 +451,15 @@
       <option name="project" value="LOCAL" />
       <updated>1697393608655</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="fixed bug when drivers are replaced">
+      <option name="closed" value="true" />
+      <created>1698686392319</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1698686392319</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -533,7 +506,8 @@
     <MESSAGE value="Bug with new driver added" />
     <MESSAGE value="Fixed bug with new driver added" />
     <MESSAGE value="fixed table layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed table layout" />
+    <MESSAGE value="fixed bug when drivers are replaced" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed bug when drivers are replaced" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">

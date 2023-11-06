@@ -40,6 +40,10 @@ public class DriverService {
         if (driver.getCarNumber() == 33) {
           driver.setCarNumber(1);
         }
+        // Handle bug where Lawson was dropped and changed car number.
+        if (driver.getCarNumber() == 40) {
+          driver.setCarNumber(15);
+        }
         if (driverRepository.findByCarNumber(driver.getCarNumber()) == null) {
           driverRepository.save(driver);
         }
@@ -78,7 +82,6 @@ public class DriverService {
     driversStandings.removeIf((driver -> driver.getShortName().equalsIgnoreCase("LAW")));
     return driversStandings;
   }
-
 
   public List<Driver> getUndraftedDrivers(League league) {
     List<Driver> undraftedDrivers = removeInactiveDrivers();
